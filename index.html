@@ -3,398 +3,510 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1e3a5f">
+<meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1116" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>Calculadora de notes · Q1</title>
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Notes">
+<title>Notes · 1r quadrimestre</title>
 <style>
   :root{
-    --bg:#f3f5f9; --card:#fff; --text:#1b2433; --muted:#6b7688; --line:#e2e6ee;
-    --accent:#1e3a5f; --ok:#1f8a4c; --ko:#c0392b; --np:#8a8f99; --warn:#b7791f;
+    --bg:#f6f7f9; --surface:#ffffff; --surface-2:#f1f3f6; --text:#14181f; --muted:#667085; --faint:#98a2b3;
+    --line:#e4e7ec; --accent:#2f4b7c; --accent-soft:#e8edf5;
+    --pass:#15803d; --pass-soft:#e7f4ec; --fail:#b42318; --fail-soft:#fbeae8; --np:#667085;
+    --seg1:#2f4b7c; --seg2:#5b77a8; --seg3:#9db0cf;
+    --radius:14px;
   }
   @media (prefers-color-scheme:dark){
-    :root{ --bg:#0f141c; --card:#18202c; --text:#e8edf5; --muted:#8e9aae; --line:#2a3443; --accent:#7fb2ff; }
+    :root{
+      --bg:#0e1116; --surface:#161b22; --surface-2:#1d232c; --text:#e6e9ef; --muted:#97a1b0; --faint:#6b7480;
+      --line:#262d38; --accent:#8fb0e8; --accent-soft:#1d2a3f;
+      --pass:#4ade80; --pass-soft:#14301f; --fail:#f87171; --fail-soft:#3a1717;
+      --seg1:#8fb0e8; --seg2:#5f7fb5; --seg3:#3b5379;
+    }
   }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);
-       padding-bottom:calc(24px + env(safe-area-inset-bottom))}
-  header{background:var(--accent);color:#fff;padding:calc(14px + env(safe-area-inset-top)) 16px 0;position:sticky;top:0;z-index:5}
-  @media (prefers-color-scheme:dark){ header{background:#16263d} }
-  h1{font-size:18px;margin:0 0 10px}
-  nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
-  nav button{flex:1;min-width:70px;border:0;background:transparent;color:#cdd9ea;font-size:15px;font-weight:600;
-             padding:10px 6px 12px;border-bottom:3px solid transparent;cursor:pointer}
-  nav button.active{color:#fff;border-bottom-color:#fff}
-  main{max-width:640px;margin:0 auto;padding:14px}
-  .card{background:var(--card);border-radius:14px;padding:14px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-  .card h2{font-size:15px;margin:0 0 10px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-  .row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
-  .row:last-child{border-bottom:0}
-  .row label{flex:1;font-size:15px}
-  .row small{display:block;color:var(--muted);font-size:12px}
-  input[type=number]{width:86px;font-size:17px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;
-       background:var(--bg);color:var(--text);text-align:right}
-  input[type=number]:focus{outline:2px solid var(--accent);border-color:transparent}
-  input.bad{outline:2px solid var(--ko)}
-  .lab{border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin:8px 0}
-  .lab-head{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:14px}
-  .lab-head span{color:var(--muted);font-weight:500}
-  .lab .row{padding:5px 0}
-  .chk{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
-  .chk input{width:20px;height:20px}
-  .res{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0}
-  .res .v{font-weight:700;font-size:17px;font-variant-numeric:tabular-nums}
-  .final{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:12px;margin-top:8px;color:#fff;background:var(--np)}
-  .final .lbl{font-size:14px;opacity:.9}
-  .final .v{font-size:30px;font-weight:800}
-  .final.ok{background:var(--ok)} .final.ko{background:var(--ko)}
-  .hint{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.4}
-  .hint b{color:var(--text)}
-  .formula{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--muted);line-height:1.5}
-  .summary-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
-  .summary-item:last-child{border-bottom:0}
-  .pill{min-width:64px;text-align:center;padding:6px 10px;border-radius:999px;color:#fff;font-weight:700;background:var(--np)}
-  .pill.ok{background:var(--ok)} .pill.ko{background:var(--ko)}
-  .btn{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ko);font-size:15px;font-weight:600}
-  .hidden{display:none}
-  .note{font-size:12.5px;color:var(--muted);text-align:center;margin-top:6px}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;font:15px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+       background:var(--bg);color:var(--text);padding-bottom:calc(32px + env(safe-area-inset-bottom))}
+  .num{font-variant-numeric:tabular-nums}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);
+         backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px);
+         border-bottom:1px solid var(--line);padding:calc(12px + env(safe-area-inset-top)) 16px 10px}
+  .hwrap{max-width:640px;margin:0 auto}
+  .brand{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
+  .brand h1{font-size:17px;font-weight:650;margin:0;letter-spacing:-.01em}
+  .brand span{font-size:12.5px;color:var(--muted)}
+  nav{display:flex;background:var(--surface-2);border-radius:10px;padding:3px;gap:2px}
+  nav button{flex:1;border:0;background:transparent;color:var(--muted);font:inherit;font-size:13.5px;font-weight:600;
+             padding:7px 4px;border-radius:8px;cursor:pointer;transition:background .15s,color .15s}
+  nav button.active{background:var(--surface);color:var(--text);box-shadow:0 1px 2px rgba(16,24,40,.08)}
+
+  main{max-width:640px;margin:0 auto;padding:16px}
+  section.hidden{display:none}
+
+  /* Cards */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:12px}
+  .card-title{display:flex;justify-content:space-between;align-items:center;margin:0 0 12px}
+  .card-title h3{font-size:12px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0}
+  .card-title .sum{font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:999px}
+
+  /* Subject heading */
+  .subj-head{margin:4px 2px 14px}
+  .subj-head .code{font-size:12px;font-weight:650;color:var(--accent);letter-spacing:.06em}
+  .subj-head h2{font-size:22px;margin:2px 0 0;letter-spacing:-.02em;font-weight:680}
+
+  /* Grade hero */
+  .hero{display:flex;align-items:center;gap:16px}
+  .hero .big{font-size:44px;font-weight:720;letter-spacing:-.03em;line-height:1;min-width:110px}
+  .hero .meta{flex:1;min-width:0}
+  .status{display:inline-block;font-size:11.5px;font-weight:650;letter-spacing:.04em;text-transform:uppercase;
+          padding:3px 8px;border-radius:6px;background:var(--surface-2);color:var(--muted)}
+  .status.pass{background:var(--pass-soft);color:var(--pass)}
+  .status.fail{background:var(--fail-soft);color:var(--fail)}
+  .hero .sub{font-size:13px;color:var(--muted);margin-top:6px}
+  .c-pass{color:var(--pass)} .c-fail{color:var(--fail)} .c-none{color:var(--faint)}
+  .progress{height:6px;background:var(--surface-2);border-radius:99px;overflow:hidden;margin-top:14px}
+  .progress > i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .3s}
+  .progress-lbl{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px}
+
+  .breakdown{margin-top:14px;border-top:1px solid var(--line);padding-top:6px}
+  .bd{display:flex;justify-content:space-between;padding:6px 0;font-size:14px}
+  .bd span:first-child{color:var(--muted)}
+  .bd span:last-child{font-weight:600}
+  .hint{margin-top:12px;font-size:13.5px;background:var(--surface-2);border-radius:10px;padding:10px 12px;line-height:1.45}
+  .hint:empty{display:none}
+  .hint p{margin:0} .hint p + p{margin-top:6px}
+
+  /* Weight bar */
+  .wbar{display:flex;gap:3px;height:10px;margin-bottom:10px}
+  .wbar .seg{position:relative;border-radius:3px;overflow:hidden;background:var(--surface-2)}
+  .wbar .seg i{position:absolute;inset:0 auto 0 0;transition:width .3s}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px}
+  .legend div{display:flex;align-items:center;gap:6px}
+  .legend b{font-weight:650}
+  .legend .dot{width:9px;height:9px;border-radius:2px}
+  .wnote{font-size:12.5px;color:var(--muted);margin-top:10px}
+
+  /* Inputs */
+  .field{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+  .field:first-of-type{border-top:0;padding-top:2px}
+  .field .lbl{flex:1;min-width:0}
+  .field .lbl div{font-size:15px}
+  .field .lbl small{display:block;font-size:12px;color:var(--muted)}
+  .w{font-size:12px;font-weight:650;color:var(--accent);background:var(--accent-soft);padding:3px 7px;border-radius:6px;white-space:nowrap}
+  input[type=number]{width:78px;font:inherit;font-size:17px;font-weight:600;padding:8px 10px;border:1px solid var(--line);border-radius:10px;
+       background:var(--surface-2);color:var(--text);text-align:right;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+  input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  input[type=number]:focus{outline:none;border-color:var(--accent);background:var(--surface);box-shadow:0 0 0 3px var(--accent-soft)}
+  input[type=number]::placeholder{color:var(--faint);font-weight:400}
+  input.bad{border-color:var(--fail);box-shadow:0 0 0 3px var(--fail-soft)}
+
+  .lab{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:10px}
+  .lab-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+  .lab-head b{font-size:14px}
+  .lab-head .r{display:flex;align-items:center;gap:8px}
+  .lab-head .nl{font-weight:650;font-size:14px;min-width:38px;text-align:right}
+  .switch{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted);padding:6px 0}
+  .switch input{appearance:none;-webkit-appearance:none;width:38px;height:22px;border-radius:99px;background:var(--line);position:relative;cursor:pointer;transition:background .2s;margin:0}
+  .switch input::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2);transition:transform .2s}
+  .switch input:checked{background:var(--accent)}
+  .switch input:checked::after{transform:translateX(16px)}
+  .lab.off .field{opacity:.4;pointer-events:none}
+
+  .formula{font:12.5px/1.7 ui-monospace,"SF Mono",Menlo,Consolas,monospace;color:var(--muted);white-space:pre-wrap;margin:0}
+
+  /* Summary */
+  .srow{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line);cursor:pointer}
+  .srow:first-of-type{border-top:0;padding-top:2px}
+  .srow .info{flex:1;min-width:0}
+  .srow .info .n{font-weight:600;font-size:15px}
+  .srow .info .c{font-size:12px;color:var(--muted)}
+  .srow .mini{height:4px;background:var(--surface-2);border-radius:99px;overflow:hidden;margin-top:7px}
+  .srow .mini i{display:block;height:100%;background:var(--accent)}
+  .srow .g{text-align:right}
+  .srow .g .v{font-size:22px;font-weight:700;letter-spacing:-.02em}
+  .srow .chev{color:var(--faint);font-size:18px}
+  .avg{display:flex;justify-content:space-between;align-items:center}
+  .avg .v{font-size:28px;font-weight:720;letter-spacing:-.02em}
+  .avg small{display:block;color:var(--muted);font-size:12.5px}
+
+  .btn{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--fail);font:inherit;font-weight:600;cursor:pointer}
+  .foot{font-size:12.5px;color:var(--muted);text-align:center;margin:8px 0 14px}
 </style>
 </head>
 <body>
 <header>
-  <h1>🎓 Notes 1r quadrimestre</h1>
-  <nav id="tabs">
-    <button data-t="resum" class="active">Resum</button>
-    <button data-t="pro1">PRO1</button>
-    <button data-t="fm">FM</button>
-    <button data-t="fis">Física</button>
-    <button data-t="ic">IC</button>
-  </nav>
+  <div class="hwrap">
+    <div class="brand"><h1>Calculadora de notes</h1><span>1r quadrimestre</span></div>
+    <nav id="tabs"></nav>
+  </div>
 </header>
-
-<main>
-  <!-- RESUM -->
-  <section id="resum">
-    <div class="card">
-      <h2>Notes finals</h2>
-      <div id="summary"></div>
-    </div>
-    <div class="card">
-      <h2>Mitjana</h2>
-      <div class="res"><span>Mitjana de les assignatures avaluades</span><span class="v" id="avg">—</span></div>
-    </div>
-    <p class="note">Deixa en blanc les notes que encara no tens. Tot es guarda automàticament al mòbil.</p>
-    <button class="btn" id="reset">Esborrar totes les notes</button>
-  </section>
-
-  <!-- PRO1 -->
-  <section id="pro1" class="hidden">
-    <div class="card">
-      <h2>Exàmens</h2>
-      <div class="row"><label>Parcial (P)<small>En blanc = NP</small></label><input type="number" data-k="pro1.P"></div>
-      <div class="row"><label>Final (F)<small>En blanc = NP</small></label><input type="number" data-k="pro1.F"></div>
-    </div>
-    <div class="card">
-      <h2>Resultat</h2>
-      <div class="res"><span>0,4·P + 0,6·F</span><span class="v" id="pro1-mix">—</span></div>
-      <div class="final" id="pro1-final"><span class="lbl">Nota N</span><span class="v">—</span></div>
-      <div class="hint" id="pro1-hint"></div>
-    </div>
-    <div class="card formula">N = max(0,4·P + 0,6·F, F)<br>NP si parcial i final són NP.</div>
-  </section>
-
-  <!-- FM -->
-  <section id="fm" class="hidden">
-    <div class="card">
-      <h2>Avaluació continuada</h2>
-      <div class="row"><label>Parcial 1 (P1)<small>40%</small></label><input type="number" data-k="fm.P1"></div>
-      <div class="row"><label>Parcial 2 (P2)<small>40%</small></label><input type="number" data-k="fm.P2"></div>
-      <div class="row"><label>Laboratori prova 1<small>10%</small></label><input type="number" data-k="fm.L1"></div>
-      <div class="row"><label>Laboratori prova 2<small>10%</small></label><input type="number" data-k="fm.L2"></div>
-    </div>
-    <div class="card">
-      <h2>Examen final (opcional)</h2>
-      <div class="row"><label>Final (F)<small>100%</small></label><input type="number" data-k="fm.F"></div>
-    </div>
-    <div class="card">
-      <h2>Resultat</h2>
-      <div class="res"><span>Laboratori (L)</span><span class="v" id="fm-L">—</span></div>
-      <div class="res"><span>Avaluació continuada (AC)</span><span class="v" id="fm-AC">—</span></div>
-      <div class="final" id="fm-final"><span class="lbl">Nota del curs</span><span class="v">—</span></div>
-      <div class="hint" id="fm-hint"></div>
-    </div>
-    <div class="card formula">AC = 0,4·P1 + 0,4·P2 + 0,2·L<br>Nota = max(AC, F)</div>
-  </section>
-
-  <!-- FÍSICA -->
-  <section id="fis" class="hidden">
-    <div class="card">
-      <h2>Parcials (90%)</h2>
-      <div class="row"><label>Parcial 1 (temes 1-2)</label><input type="number" data-k="fis.P1"></div>
-      <div class="row"><label>Parcial 2 (temes 3-4)</label><input type="number" data-k="fis.P2"></div>
-    </div>
-    <div class="card">
-      <h2>Laboratori (10%)</h2>
-      <div class="row"><label>Pràctica 1</label><input type="number" data-k="fis.Pr1"></div>
-      <div class="row"><label>Pràctica 2</label><input type="number" data-k="fis.Pr2"></div>
-      <div class="row"><label>Pràctica 3</label><input type="number" data-k="fis.Pr3"></div>
-      <div class="row"><label>Pràctica 4</label><input type="number" data-k="fis.Pr4"></div>
-      <div class="row"><label>Pràctica 5</label><input type="number" data-k="fis.Pr5"></div>
-      <div class="row"><label>Examen de lab (oral)<small>25% del lab</small></label><input type="number" data-k="fis.ExLab"></div>
-    </div>
-    <div class="card">
-      <h2>Examen final (opcional)</h2>
-      <div class="row"><label>Examen final (EF)</label><input type="number" data-k="fis.EF"></div>
-    </div>
-    <div class="card">
-      <h2>Resultat</h2>
-      <div class="res"><span>Mitjana pràctiques</span><span class="v" id="fis-mp">—</span></div>
-      <div class="res"><span>Laboratori (L)</span><span class="v" id="fis-L">—</span></div>
-      <div class="res"><span>Nota curs AC</span><span class="v" id="fis-AC">—</span></div>
-      <div class="res"><span>Nota curs amb final</span><span class="v" id="fis-EFn">—</span></div>
-      <div class="final" id="fis-final"><span class="lbl">Nota del curs</span><span class="v">—</span></div>
-      <div class="hint" id="fis-hint"></div>
-    </div>
-    <div class="card formula">L = 0,75·mitjana(pràctiques) + 0,25·ExLab<br>AC = 0,90·(P1+P2)/2 + 0,10·L<br>Amb EF = 0,90·max(EF, (P1+P2)/2) + 0,10·L</div>
-  </section>
-
-  <!-- IC -->
-  <section id="ic" class="hidden">
-    <div class="card">
-      <h2>Teoria i problemes (80%)</h2>
-      <div class="row"><label>Parcial 1 (NP1)<small>40%</small></label><input type="number" data-k="ic.NP1"></div>
-      <div class="row"><label>Parcial 2 (NP2)<small>60%</small></label><input type="number" data-k="ic.NP2"></div>
-      <div class="row"><label>Examen final (EF)<small>Opcional</small></label><input type="number" data-k="ic.EF"></div>
-    </div>
-    <div class="card">
-      <h2>Laboratori (20%)</h2>
-      <div id="ic-labs"></div>
-    </div>
-    <div class="card">
-      <h2>Resultat</h2>
-      <div class="res"><span>NTP (teoria i problemes)</span><span class="v" id="ic-NTP">—</span></div>
-      <div class="res"><span>NL (laboratori)</span><span class="v" id="ic-NL">—</span></div>
-      <div class="final" id="ic-final"><span class="lbl">Nota final NF</span><span class="v">—</span></div>
-      <div class="hint" id="ic-hint"></div>
-    </div>
-    <div class="card formula">NLi = 0,65·PPi + 0,35·IFi (0 sense informe previ)<br>NL = mitjana de les 6 pràctiques<br>NTP = max(0,4·NP1 + 0,6·NP2, EF)<br>NF = 0,8·NTP + 0,2·NL<br>NP si no fas NP2, L3–L6 ni EF.</div>
-  </section>
-</main>
+<main id="main"></main>
 
 <script>
+/* ---------- Dades ---------- */
 const STORE = "notes-q1-v1";
 let data = {};
-try { data = JSON.parse(localStorage.getItem(STORE)) || {}; } catch(e) { data = {}; }
-const save = () => { try { localStorage.setItem(STORE, JSON.stringify(data)); } catch(e) {} };
-
-// Build IC lab rows
-const labsEl = document.getElementById("ic-labs");
-for (let i = 1; i <= 6; i++) {
-  labsEl.insertAdjacentHTML("beforeend", `
-    <div class="lab">
-      <div class="lab-head">Pràctica ${i} <span id="ic-nl${i}">—</span></div>
-      <label class="chk"><input type="checkbox" data-k="ic.inf${i}" checked> Informe previ entregat</label>
-      <div class="row"><label>Prova prèvia (PP${i})<small>65%</small></label><input type="number" data-k="ic.PP${i}"></div>
-      <div class="row"><label>Informe final (IF${i})<small>35%</small></label><input type="number" data-k="ic.IF${i}"></div>
-    </div>`);
-}
-
-// Inputs setup
-document.querySelectorAll("input[data-k]").forEach(inp => {
-  const k = inp.dataset.k;
-  if (inp.type === "checkbox") {
-    if (k in data) inp.checked = data[k];
-    inp.addEventListener("change", () => { data[k] = inp.checked; save(); calc(); });
-  } else {
-    inp.min = 0; inp.max = 10; inp.step = "0.01"; inp.inputMode = "decimal"; inp.placeholder = "—";
-    if (data[k] !== undefined && data[k] !== null) inp.value = data[k];
-    inp.addEventListener("input", () => {
-      const v = inp.value.trim();
-      if (v === "") { delete data[k]; inp.classList.remove("bad"); }
-      else {
-        const n = parseFloat(v.replace(",", "."));
-        const ok = !isNaN(n) && n >= 0 && n <= 10;
-        inp.classList.toggle("bad", !ok);
-        if (ok) data[k] = n; else delete data[k];
-      }
-      save(); calc();
-    });
-  }
-});
+try { data = JSON.parse(localStorage.getItem(STORE)) || {}; } catch (e) { data = {}; }
+const save = () => { try { localStorage.setItem(STORE, JSON.stringify(data)); } catch (e) {} };
 
 const g = k => (typeof data[k] === "number" ? data[k] : null);
 const has = v => v !== null && v !== undefined;
 const z = v => (has(v) ? v : 0);
 const r2 = v => Math.round(v * 100) / 100;
-const fmt = v => (has(v) ? r2(v).toFixed(2).replace(".", ",") : "—");
-const mean = arr => { const xs = arr.filter(has); return xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null; };
-const meanAll = arr => arr.reduce((a, b) => a + z(b), 0) / arr.length;
-const set = (id, v) => { document.getElementById(id).textContent = typeof v === "string" ? v : fmt(v); };
-function setFinal(id, v) {
-  const el = document.getElementById(id);
-  el.classList.remove("ok", "ko");
-  if (v === "NP") { el.querySelector(".v").textContent = "NP"; return; }
-  if (!has(v)) { el.querySelector(".v").textContent = "—"; return; }
-  el.querySelector(".v").textContent = fmt(v);
-  el.classList.add(r2(v) >= 5 ? "ok" : "ko");
-}
-const need = (x, label) => {
-  if (x <= 0) return `Ja tens el 5 assegurat amb les notes actuals 🎉`;
-  if (x > 10) return `Ni amb un 10 a ${label} arribaries al 5 😬`;
-  return `Necessites com a mínim un <b>${fmt(Math.ceil(x * 100) / 100)}</b> a ${label} per aprovar.`;
-};
+const fmt = v => (has(v) && !isNaN(v) ? r2(v).toFixed(2).replace(".", ",") : "—");
+const pct = w => (Math.round(w * 1000) / 10).toString().replace(".", ",") + "%";
+const sum = items => items.reduce((a, it) => a + it.w * it.v, 0);
+const wsum = items => items.reduce((a, it) => a + it.w, 0);
+const infOn = i => data["ic.inf" + i] !== false;
+const ceil2 = x => Math.ceil(x * 100 - 1e-9) / 100;
 
+function need(x, what) {
+  if (x <= 0) return `Ja tens el 5 assegurat 🎉`;
+  if (x > 10) return `Ni amb un 10 a ${what} arribaries al 5.`;
+  return `Et cal un <b>${fmt(ceil2(x))}</b> ${what}.`;
+}
+
+/* ---------- Assignatures ---------- */
+const AC_LAB_IC = 0.2 / 6;
+
+const SUBJECTS = [
+  {
+    id: "pro1", code: "PRO1", name: "Programació",
+    segs: [{ l: "Parcial", w: .4, keys: ["P"] }, { l: "Final", w: .6, keys: ["F"] }],
+    wnote: "Si la nota del final és més alta, el final compta el 100%.",
+    groups: [{ title: "Exàmens", fields: [
+      { k: "P", label: "Examen parcial", sub: "En blanc = NP", w: "40%" },
+      { k: "F", label: "Examen final", sub: "En blanc = NP", w: "60% / 100%" },
+    ]}],
+    formula: "N = max(0,4·P + 0,6·F , F)\nNP si parcial i final són NP.",
+    calc() {
+      const P = g("pro1.P"), F = g("pro1.F");
+      const r = { items: [], bd: [], hints: [] };
+      if (!has(P) && !has(F)) { r.np = true; return r; }
+      if (has(F)) {
+        const mix = 0.4 * z(P) + 0.6 * F;
+        r.items = [{ w: 1, v: Math.max(mix, F) }];
+        r.bd = [["0,4·P + 0,6·F", mix], ["Només el final", F]];
+      } else {
+        r.items = [{ w: .4, v: P }];
+        r.bd = [["Parcial (40%)", P]];
+        r.hints.push(need(Math.min((5 - 0.4 * P) / 0.6, 5), "a l'examen final per aprovar"));
+      }
+      return r;
+    },
+  },
+  {
+    id: "fm", code: "FM", name: "Fonaments Matemàtics",
+    segs: [{ l: "Parcial 1", w: .4, keys: ["P1"] }, { l: "Parcial 2", w: .4, keys: ["P2"] }, { l: "Laboratori", w: .2, keys: ["L1", "L2"] }],
+    wnote: "Alternativa: l'examen final compta el 100%. Es queda la nota més alta.",
+    groups: [
+      { title: "Avaluació continuada", fields: [
+        { k: "P1", label: "Parcial 1", w: "40%" },
+        { k: "P2", label: "Parcial 2", w: "40%" },
+        { k: "L1", label: "Laboratori · prova 1", w: "10%" },
+        { k: "L2", label: "Laboratori · prova 2", w: "10%" },
+      ]},
+      { title: "Examen final (opcional)", fields: [{ k: "F", label: "Examen final", sub: "Substitueix l'AC si és més alt", w: "100%" }] },
+    ],
+    formula: "AC = 0,4·P1 + 0,4·P2 + 0,2·L\nL  = (Lab1 + Lab2) / 2\nNota = max(AC, F)",
+    calc() {
+      const P1 = g("fm.P1"), P2 = g("fm.P2"), L1 = g("fm.L1"), L2 = g("fm.L2"), F = g("fm.F");
+      const ac = [{ w: .4, v: P1 }, { w: .4, v: P2 }, { w: .1, v: L1 }, { w: .1, v: L2 }].filter(i => has(i.v));
+      const r = { items: ac, bd: [], hints: [] };
+      const labs = [L1, L2].filter(has);
+      if (labs.length) r.bd.push(["Laboratori L (mitjana)", labs.reduce((a, b) => a + b, 0) / labs.length]);
+      if (ac.length) r.bd.push([wsum(ac) < .999 ? "AC fins ara" : "Avaluació continuada", sum(ac) / wsum(ac)]);
+      if (has(F)) {
+        r.items = [{ w: 1, v: Math.max(sum(ac), F) }];
+        r.bd.push(["Examen final", F]);
+        return r;
+      }
+      const rem = 1 - wsum(ac);
+      if (rem > .001) r.hints.push(need((5 - sum(ac)) / rem, `de mitjana en el que queda d'AC (${pct(rem)})`) + " O bé un <b>5,00</b> al final.");
+      else if (sum(ac) < 5) r.hints.push("No arribes al 5 per AC. Et cal un <b>5,00</b> a l'examen final.");
+      else r.hints.push("Aprovada per avaluació continuada 🎉 El final només pot pujar la nota.");
+      return r;
+    },
+  },
+  {
+    id: "fis", code: "F", name: "Física",
+    segs: [{ l: "Parcial 1", w: .45, keys: ["P1"] }, { l: "Parcial 2", w: .45, keys: ["P2"] }, { l: "Laboratori", w: .1, keys: ["Pr1", "Pr2", "Pr3", "Pr4", "Pr5", "ExLab"] }],
+    wnote: "Teoria 90% · Laboratori 10%. L'examen final (opcional) substitueix la mitjana dels parcials si és més alt.",
+    groups: [
+      { title: "Teoria · 90%", fields: [
+        { k: "P1", label: "Parcial 1", sub: "Temes 1 i 2", w: "45%" },
+        { k: "P2", label: "Parcial 2", sub: "Temes 3 i 4", w: "45%" },
+      ]},
+      { title: "Laboratori · 10%", fields: [
+        { k: "Pr1", label: "Pràctica 1", w: "1,5%" },
+        { k: "Pr2", label: "Pràctica 2", w: "1,5%" },
+        { k: "Pr3", label: "Pràctica 3", w: "1,5%" },
+        { k: "Pr4", label: "Pràctica 4", w: "1,5%" },
+        { k: "Pr5", label: "Pràctica 5", w: "1,5%" },
+        { k: "ExLab", label: "Examen de lab (oral)", sub: "25% del laboratori", w: "2,5%" },
+      ]},
+      { title: "Examen final (opcional)", fields: [{ k: "EF", label: "Examen final", sub: "Substitueix (P1+P2)/2 si és més alt", w: "90%" }] },
+    ],
+    formula: "L  = 0,75·mitjana(pràctiques) + 0,25·ExLab\nAC = 0,90·(P1+P2)/2 + 0,10·L\nEF = 0,90·max(EF, (P1+P2)/2) + 0,10·L",
+    calc() {
+      const P1 = g("fis.P1"), P2 = g("fis.P2"), EF = g("fis.EF");
+      const lab = [1, 2, 3, 4, 5].map(i => ({ w: .015, v: g("fis.Pr" + i) })).concat([{ w: .025, v: g("fis.ExLab") }]).filter(i => has(i.v));
+      const r = { items: [], bd: [], hints: [] };
+      const Lp = lab.length ? sum(lab) / wsum(lab) : null;
+      const prs = [1, 2, 3, 4, 5].map(i => g("fis.Pr" + i)).filter(has);
+      if (prs.length) r.bd.push(["Mitjana pràctiques", prs.reduce((a, b) => a + b, 0) / prs.length]);
+      if (has(Lp)) r.bd.push([wsum(lab) < .0999 ? "Laboratori L fins ara" : "Laboratori L", Lp]);
+      const ps = [P1, P2].filter(has);
+      if (ps.length) r.bd.push([ps.length < 2 ? "Parcials fins ara" : "Mitjana parcials", ps.reduce((a, b) => a + b, 0) / ps.length]);
+      if (has(EF)) {
+        r.items = [{ w: .9, v: Math.max(EF, (z(P1) + z(P2)) / 2) }].concat(lab);
+        r.bd.push(["Examen final", EF]);
+      } else {
+        r.items = [{ w: .45, v: P1 }, { w: .45, v: P2 }].filter(i => has(i.v)).concat(lab);
+        const rem = 1 - wsum(r.items);
+        const Lest = z(Lp);
+        if (rem > .001) {
+          if (has(P1) && !has(P2)) {
+            const reqP2 = ((5 - 0.1 * Lest) / 0.9) * 2 - P1;
+            r.hints.push(need(reqP2, "al Parcial 2").replace(/\.$/, "") + (has(Lp) ? " (si mantens la nota de laboratori)." : " (comptant el lab a 0; omple'l per afinar)."));
+          } else if (r.items.length) r.hints.push(need((5 - sum(r.items)) / rem, `de mitjana en el que queda (${pct(rem)})`));
+        }
+        if (has(P1) && has(P2)) {
+          const ac = 0.9 * (P1 + P2) / 2 + 0.1 * Lest;
+          if (ac < 5) r.hints.push(need((5 - 0.1 * Lest) / 0.9, "a l'examen final per aprovar"));
+          else if (rem <= .001) r.hints.push("Aprovada per avaluació contínua 🎉");
+        }
+      }
+      return r;
+    },
+  },
+  {
+    id: "ic", code: "IC", name: "Introducció als Computadors",
+    segs: [{ l: "Parcial 1", w: .32, keys: ["NP1"] }, { l: "Parcial 2", w: .48, keys: ["NP2"] }, { l: "Laboratori", w: .2, keys: [1, 2, 3, 4, 5, 6].flatMap(i => ["PP" + i, "IF" + i]) }],
+    wnote: "Teoria i problemes 80% (P1 40% · P2 60%) · Laboratori 20%. L'examen final pot substituir la nota de teoria.",
+    groups: [
+      { title: "Teoria i problemes · 80%", fields: [
+        { k: "NP1", label: "Parcial 1 (NP1)", sub: "40% de la teoria", w: "32%" },
+        { k: "NP2", label: "Parcial 2 (NP2)", sub: "60% de la teoria", w: "48%" },
+        { k: "EF", label: "Examen final (opcional)", sub: "Substitueix NTP si és més alt", w: "80%" },
+      ]},
+      { title: "Laboratori · 20%", labs: true },
+    ],
+    formula: "NLi = 0,65·PPi + 0,35·IFi   (0 sense informe previ)\nNL  = mitjana de les 6 pràctiques\nNTP = max(0,4·NP1 + 0,6·NP2 , EF)\nNF  = 0,8·NTP + 0,2·NL\nNP si no fas NP2, L3–L6 ni l'EF.",
+    calc() {
+      const NP1 = g("ic.NP1"), NP2 = g("ic.NP2"), EF = g("ic.EF");
+      const lab = [];
+      const done = [];
+      for (let i = 1; i <= 6; i++) {
+        const PP = g("ic.PP" + i), IF = g("ic.IF" + i);
+        const it = infOn(i) ? [{ w: AC_LAB_IC * .65, v: PP }, { w: AC_LAB_IC * .35, v: IF }].filter(x => has(x.v))
+                            : [{ w: AC_LAB_IC, v: 0 }];
+        lab.push(...it);
+        done[i] = it.length > 0;
+        const el = document.getElementById("ic-nl" + i);
+        if (el) el.textContent = !infOn(i) ? "0,00" : it.length ? fmt(sum(it) / wsum(it)) : "—";
+      }
+      const r = { items: [], bd: [], hints: [] };
+      const NLp = lab.length ? sum(lab) / wsum(lab) : null;
+      if (has(NLp)) r.bd.push([wsum(lab) < .1999 ? "Laboratori NL fins ara" : "Laboratori NL", NLp]);
+      const t = [{ w: .32, v: NP1 }, { w: .48, v: NP2 }].filter(i => has(i.v));
+      if (t.length) r.bd.push([t.length < 2 ? "NTP fins ara" : "NTP (avaluació contínua)", sum(t) / wsum(t)]);
+      const anything = t.length || lab.length || has(EF);
+      if (anything && !(has(NP2) || done[3] || done[4] || done[5] || done[6] || has(EF)))
+        r.hints.push("Atenció: si no et presentes a NP2, a les pràctiques L3–L6 ni a l'EF, la nota serà <b>NP</b>.");
+      if (has(EF)) {
+        r.items = [{ w: .8, v: Math.max(0.4 * z(NP1) + 0.6 * z(NP2), EF) }].concat(lab);
+        r.bd.push(["Examen final", EF]);
+      } else {
+        r.items = t.concat(lab);
+        const rem = 1 - wsum(r.items);
+        const NLest = z(NLp);
+        if (rem > .001) {
+          if (has(NP1) && !has(NP2)) {
+            const req = ((5 - 0.2 * NLest) / 0.8 - 0.4 * NP1) / 0.6;
+            r.hints.push(need(req, "al Parcial 2").replace(/\.$/, "") + (has(NLp) ? " (si mantens la nota de laboratori)." : " (comptant el lab a 0; omple'l per afinar)."));
+          } else if (r.items.length) r.hints.push(need((5 - sum(r.items)) / rem, `de mitjana en el que queda (${pct(rem)})`));
+        }
+        if (has(NP1) && has(NP2)) {
+          const nf = 0.8 * (0.4 * NP1 + 0.6 * NP2) + 0.2 * NLest;
+          if (nf < 5) r.hints.push(need((5 - 0.2 * NLest) / 0.8, "a l'examen final per aprovar"));
+          else if (rem <= .001) r.hints.push("Aprovada per avaluació contínua 🎉");
+        }
+      }
+      return r;
+    },
+  },
+];
+
+/* ---------- Construcció de la interfície ---------- */
+const main = document.getElementById("main");
+const tabs = document.getElementById("tabs");
+tabs.innerHTML = `<button data-t="resum" class="active">Resum</button>` + SUBJECTS.map(s => `<button data-t="${s.id}">${s.code === "F" ? "Física" : s.code}</button>`).join("");
+
+const segColor = i => `var(--seg${i + 1})`;
+
+let html = `
+<section id="resum">
+  <div class="card"><div class="card-title"><h3>Assignatures</h3></div><div id="summary"></div></div>
+  <div class="card avg"><div><b>Mitjana provisional</b><small id="avg-sub">Mitjana de les assignatures amb nota</small></div><span class="v num" id="avg">—</span></div>
+  <p class="foot">La nota provisional es calcula només amb el que ja tens avaluat. Les notes es guarden en aquest dispositiu.</p>
+  <button class="btn" id="reset">Esborrar totes les notes</button>
+</section>`;
+
+for (const s of SUBJECTS) {
+  html += `<section id="${s.id}" class="hidden">
+    <div class="subj-head"><div class="code">${s.code}</div><h2>${s.name}</h2></div>
+    <div class="card">
+      <div class="hero">
+        <div class="big num c-none" id="${s.id}-big">—</div>
+        <div class="meta"><span class="status" id="${s.id}-status">Sense notes</span><div class="sub" id="${s.id}-sub">Introdueix notes per veure la nota provisional.</div></div>
+      </div>
+      <div class="progress"><i id="${s.id}-prog" style="width:0"></i></div>
+      <div class="progress-lbl"><span id="${s.id}-plbl">0% avaluat</span><span id="${s.id}-sec"></span></div>
+      <div class="breakdown" id="${s.id}-bd"></div>
+      <div class="hint" id="${s.id}-hint"></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><h3>Ponderació</h3></div>
+      <div class="wbar">${s.segs.map((sg, i) => `<div class="seg" style="flex:${sg.w}"><i id="${s.id}-seg${i}" style="width:0;background:${segColor(i)}"></i></div>`).join("")}</div>
+      <div class="legend">${s.segs.map((sg, i) => `<div><span class="dot" style="background:${segColor(i)}"></span>${sg.l} <b>${pct(sg.w)}</b></div>`).join("")}</div>
+      <div class="wnote">${s.wnote}</div>
+    </div>`;
+  for (const gr of s.groups) {
+    const tot = gr.title.match(/·\s*(\d+%)/);
+    html += `<div class="card"><div class="card-title"><h3>${gr.title.replace(/\s*·\s*\d+%/, "")}</h3>${tot ? `<span class="sum">${tot[1]} de la nota</span>` : ""}</div>`;
+    if (gr.labs) {
+      for (let i = 1; i <= 6; i++) {
+        html += `<div class="lab" id="ic-lab${i}">
+          <div class="lab-head"><b>Pràctica ${i}</b><div class="r"><span class="w">3,33%</span><span class="nl num" id="ic-nl${i}">—</span></div></div>
+          <label class="switch">Informe previ entregat<input type="checkbox" data-k="ic.inf${i}" checked></label>
+          <div class="field"><div class="lbl"><div>Prova prèvia</div><small>65% de la pràctica</small></div><input type="number" data-k="ic.PP${i}"></div>
+          <div class="field"><div class="lbl"><div>Informe final</div><small>35% de la pràctica</small></div><input type="number" data-k="ic.IF${i}"></div>
+        </div>`;
+      }
+    } else {
+      for (const f of gr.fields) {
+        html += `<div class="field"><div class="lbl"><div>${f.label}</div>${f.sub ? `<small>${f.sub}</small>` : ""}</div><span class="w">${f.w}</span><input type="number" data-k="${s.id}.${f.k}"></div>`;
+      }
+    }
+    html += `</div>`;
+  }
+  html += `<div class="card"><div class="card-title"><h3>Fórmules</h3></div><pre class="formula">${s.formula}</pre></div></section>`;
+}
+main.innerHTML = html;
+
+/* ---------- Inputs ---------- */
+document.querySelectorAll("input[data-k]").forEach(inp => {
+  const k = inp.dataset.k;
+  if (inp.type === "checkbox") {
+    if (k in data) inp.checked = data[k];
+    inp.addEventListener("change", () => { data[k] = inp.checked; save(); calc(); });
+    return;
+  }
+  Object.assign(inp, { min: 0, max: 10, step: "0.01", inputMode: "decimal", placeholder: "—" });
+  if (typeof data[k] === "number") inp.value = data[k];
+  inp.addEventListener("input", () => {
+    const v = inp.value.trim();
+    if (v === "") { delete data[k]; inp.classList.remove("bad"); }
+    else {
+      const n = parseFloat(v.replace(",", "."));
+      const ok = !isNaN(n) && n >= 0 && n <= 10;
+      inp.classList.toggle("bad", !ok);
+      if (ok) data[k] = n; else delete data[k];
+    }
+    save(); calc();
+  });
+});
+
+/* ---------- Càlcul ---------- */
 const results = {};
+const gradeCls = v => (has(v) ? (r2(v) >= 5 ? "c-pass" : "c-fail") : "c-none");
 
 function calc() {
-  // ---------- PRO1 ----------
-  {
-    const P = g("pro1.P"), F = g("pro1.F");
-    let N = null, hint = "";
-    if (!has(P) && !has(F)) { N = "NP"; hint = "Sense cap examen fet la nota és NP."; }
-    else {
-      const p = z(P), f = z(F);
-      set("pro1-mix", 0.4 * p + 0.6 * f);
-      N = Math.max(0.4 * p + 0.6 * f, f);
-      if (!has(F)) {
-        N = null;
-        const req = Math.min((5 - 0.4 * p) / 0.6, 5);
-        hint = need(req, "l'examen final");
-      }
+  for (const s of SUBJECTS) {
+    const r = s.calc();
+    const W = Math.min(1, wsum(r.items));
+    const sec = sum(r.items);
+    const prov = W > 0 ? sec / W : null;
+    const complete = W >= 0.999;
+    const id = s.id;
+    const big = document.getElementById(id + "-big");
+    const st = document.getElementById(id + "-status");
+    const sub = document.getElementById(id + "-sub");
+
+    let res;
+    if (r.np) {
+      big.textContent = "NP"; big.className = "big num c-none";
+      st.textContent = "No presentat"; st.className = "status";
+      sub.textContent = "Encara no hi ha cap nota introduïda.";
+      res = { v: "NP", W: 0 };
+    } else if (!has(prov)) {
+      big.textContent = "—"; big.className = "big num c-none";
+      st.textContent = "Sense notes"; st.className = "status";
+      sub.textContent = "Introdueix notes per veure la nota provisional.";
+      res = { v: null, W: 0 };
+    } else {
+      big.textContent = fmt(prov); big.className = "big num " + gradeCls(prov);
+      const pass = r2(prov) >= 5;
+      st.textContent = complete ? (pass ? "Aprovat · definitiva" : "Suspès · definitiva") : (pass ? "Provisional · aprovant" : "Provisional · suspenent");
+      st.className = "status " + (pass ? "pass" : "fail");
+      sub.textContent = complete ? "Tota l'assignatura està avaluada." : `Calculada sobre el ${pct(W)} avaluat fins ara.`;
+      res = { v: prov, W, complete };
     }
-    if (!has(P) && !has(F)) set("pro1-mix", null);
-    document.getElementById("pro1-hint").innerHTML = hint;
-    setFinal("pro1-final", N);
-    results.pro1 = N;
+    document.getElementById(id + "-prog").style.width = (W * 100) + "%";
+    document.getElementById(id + "-plbl").textContent = `${pct(W)} avaluat`;
+    document.getElementById(id + "-sec").textContent = has(prov) && !complete ? `Punts assegurats: ${fmt(sec)} / 10` : "";
+    document.getElementById(id + "-bd").innerHTML = r.bd.map(([l, v]) => `<div class="bd"><span>${l}</span><span class="num">${fmt(v)}</span></div>`).join("");
+    document.getElementById(id + "-bd").style.display = r.bd.length ? "" : "none";
+    document.getElementById(id + "-hint").innerHTML = r.hints.map(h => `<p>${h}</p>`).join("");
+
+    // Barra de ponderació: omplir segons el que està avaluat
+    s.segs.forEach((sg, i) => {
+      let f;
+      if (id === "ic" && sg.l === "Laboratori") {
+        let n = 0;
+        for (let j = 1; j <= 6; j++) n += infOn(j) ? (has(g("ic.PP" + j)) ? 1 : 0) + (has(g("ic.IF" + j)) ? 1 : 0) : 2;
+        f = n / 12;
+      } else f = sg.keys.filter(k => has(g(id + "." + k))).length / sg.keys.length;
+      document.getElementById(`${id}-seg${i}`).style.width = (f * 100) + "%";
+    });
+    results[id] = res;
   }
 
-  // ---------- FM ----------
-  {
-    const P1 = g("fm.P1"), P2 = g("fm.P2"), L1 = g("fm.L1"), L2 = g("fm.L2"), F = g("fm.F");
-    const L = has(L1) || has(L2) ? (z(L1) + z(L2)) / 2 : null;
-    set("fm-L", L);
-    const anyAC = [P1, P2, L1, L2].some(has);
-    const AC = anyAC ? 0.4 * z(P1) + 0.4 * z(P2) + 0.2 * z(L) : null;
-    set("fm-AC", AC);
-    let nota = null, hint = "";
-    const acComplete = [P1, P2, L1, L2].every(has);
-    if (!anyAC && !has(F)) nota = null;
-    else if (has(F)) nota = Math.max(z(AC), F);
-    else if (acComplete) nota = AC;
-    if (!has(F)) {
-      if (!has(P2) && has(P1)) {
-        const req = (5 - 0.4 * P1 - 0.2 * z(L)) / 0.4;
-        hint = need(req, "el Parcial 2 (amb el lab que tens)") + " O bé un 5 al final.";
-      } else if (acComplete && AC < 5) hint = "No arribes al 5 per AC: necessites com a mínim un <b>5,00</b> a l'examen final.";
-      else if (acComplete) hint = "Aprovat per avaluació continuada 🎉 El final només pot pujar la nota.";
-    }
-    document.getElementById("fm-hint").innerHTML = hint;
-    setFinal("fm-final", nota);
-    results.fm = nota;
-  }
-
-  // ---------- FÍSICA ----------
-  {
-    const P1 = g("fis.P1"), P2 = g("fis.P2"), EF = g("fis.EF"), Ex = g("fis.ExLab");
-    const prs = [1, 2, 3, 4, 5].map(i => g("fis.Pr" + i));
-    const anyLab = prs.some(has) || has(Ex);
-    const mp = prs.some(has) ? meanAll(prs) : null;
-    set("fis-mp", mp);
-    const L = anyLab ? 0.75 * z(mp) + 0.25 * z(Ex) : null;
-    set("fis-L", L);
-    const anyP = has(P1) || has(P2);
-    const mP = (z(P1) + z(P2)) / 2;
-    const AC = anyP || anyLab ? 0.9 * mP + 0.1 * z(L) : null;
-    set("fis-AC", AC);
-    const withEF = has(EF) ? 0.9 * Math.max(EF, mP) + 0.1 * z(L) : null;
-    set("fis-EFn", withEF);
-    let nota = null, hint = "";
-    const acComplete = has(P1) && has(P2) && prs.every(has) && has(Ex);
-    if (has(EF)) nota = withEF;
-    else if (acComplete) nota = AC;
-    if (!has(EF)) {
-      if (has(P1) && !has(P2)) {
-        const req = (5 - 0.1 * z(L)) / 0.9 * 2 - P1;
-        hint = need(req, "el Parcial 2") + (anyLab ? "" : " (comptant el lab com a 0, omple'l per afinar)");
-      } else if (has(P1) && has(P2) && AC < 5) {
-        hint = need((5 - 0.1 * z(L)) / 0.9, "l'examen final");
-      } else if (has(P1) && has(P2) && AC >= 5) hint = "Aprovat per avaluació contínua 🎉";
-    }
-    document.getElementById("fis-hint").innerHTML = hint;
-    setFinal("fis-final", nota);
-    results.fis = nota;
-  }
-
-  // ---------- IC ----------
-  {
-    const NP1 = g("ic.NP1"), NP2 = g("ic.NP2"), EF = g("ic.EF");
-    const nls = [];
-    const done = [];
-    for (let i = 1; i <= 6; i++) {
-      const inf = data["ic.inf" + i] !== false;
-      const PP = g("ic.PP" + i), IF = g("ic.IF" + i);
-      let nl = null;
-      if (!inf) nl = 0;
-      else if (has(PP) || has(IF)) nl = 0.65 * z(PP) + 0.35 * z(IF);
-      nls.push(nl);
-      done.push(has(PP) || has(IF) || !inf);
-      set("ic-nl" + i, nl);
-    }
-    const NL = nls.some(has) ? meanAll(nls) : null;
-    set("ic-NL", NL);
-    const anyT = has(NP1) || has(NP2) || has(EF);
-    const ac = 0.4 * z(NP1) + 0.6 * z(NP2);
-    const NTP = anyT ? Math.max(ac, z(EF)) : null;
-    set("ic-NTP", NTP);
-
-    const npParticipated = has(NP2) || done[2] || done[3] || done[4] || done[5] || has(EF);
-    let nota = null, hint = "";
-    const anyAtAll = anyT || nls.some(has);
-    if (anyAtAll && !npParticipated) { nota = "NP"; hint = "Encara seria NP: no has fet NP2, les pràctiques L3–L6 ni l'EF."; }
-    else if (has(EF) || (has(NP1) && has(NP2) && nls.every(has))) nota = 0.8 * z(NTP) + 0.2 * z(NL);
-
-    if (nota !== "NP" && !has(EF)) {
-      const reqNTP = (5 - 0.2 * z(NL)) / 0.8;
-      if (has(NP1) && !has(NP2)) hint = need((reqNTP - 0.4 * NP1) / 0.6, "el Parcial 2") + (nls.every(has) ? "" : " (comptant les pràctiques que falten com a 0)");
-      else if (has(NP1) && has(NP2)) {
-        const cur = 0.8 * ac + 0.2 * z(NL);
-        hint = cur >= 5 ? "Aprovat per avaluació contínua 🎉" : need(reqNTP, "l'examen final");
-      }
-    }
-    document.getElementById("ic-hint").innerHTML = hint;
-    setFinal("ic-final", nota);
-    results.ic = nota;
-  }
-
+  document.querySelectorAll("[id^=ic-lab]").forEach((el, i) => el.classList.toggle("off", !infOn(i + 1)));
   renderSummary();
 }
 
-const NAMES = { pro1: "Programació (PRO1)", fm: "Fonaments Matemàtics (FM)", fis: "Física (F)", ic: "Introducció als Computadors (IC)" };
 function renderSummary() {
   const el = document.getElementById("summary");
-  el.innerHTML = "";
   const nums = [];
-  for (const k of Object.keys(NAMES)) {
-    const v = results[k];
-    let cls = "", txt = "—";
-    if (v === "NP") txt = "NP";
-    else if (has(v)) { txt = fmt(v); cls = r2(v) >= 5 ? "ok" : "ko"; nums.push(v); }
-    const div = document.createElement("div");
-    div.className = "summary-item";
-    div.innerHTML = `<span>${NAMES[k]}</span><span class="pill ${cls}">${txt}</span>`;
-    div.onclick = () => show(k);
-    el.appendChild(div);
-  }
-  set("avg", nums.length ? nums.reduce((a, b) => a + b, 0) / nums.length : null);
+  el.innerHTML = SUBJECTS.map(s => {
+    const r = results[s.id];
+    let v = "—", cls = "c-none", tag = "Sense notes";
+    if (r.v === "NP") { v = "NP"; tag = "No presentat"; }
+    else if (has(r.v)) { v = fmt(r.v); cls = gradeCls(r.v); tag = r.complete ? "Definitiva" : `Provisional · ${pct(r.W)} avaluat`; nums.push(r.v); }
+    return `<div class="srow" data-go="${s.id}">
+      <div class="info"><div class="n">${s.name}</div><div class="c">${s.code} · ${tag}</div><div class="mini"><i style="width:${r.W * 100}%"></i></div></div>
+      <div class="g"><div class="v num ${cls}">${v}</div></div><span class="chev">›</span></div>`;
+  }).join("");
+  el.querySelectorAll(".srow").forEach(row => row.onclick = () => show(row.dataset.go));
+  const avg = nums.length ? nums.reduce((a, b) => a + b, 0) / nums.length : null;
+  const a = document.getElementById("avg");
+  a.textContent = fmt(avg); a.className = "v num " + gradeCls(avg);
+  document.getElementById("avg-sub").textContent = nums.length ? `Mitjana de ${nums.length} assignatur${nums.length === 1 ? "a" : "es"} amb nota` : "Encara no hi ha notes";
 }
 
-// Tabs
+/* ---------- Navegació ---------- */
 function show(t) {
   document.querySelectorAll("main > section").forEach(s => s.classList.toggle("hidden", s.id !== t));
-  document.querySelectorAll("#tabs button").forEach(b => b.classList.toggle("active", b.dataset.t === t));
+  tabs.querySelectorAll("button").forEach(b => b.classList.toggle("active", b.dataset.t === t));
   window.scrollTo(0, 0);
 }
-document.querySelectorAll("#tabs button").forEach(b => b.onclick = () => show(b.dataset.t));
-
+tabs.querySelectorAll("button").forEach(b => b.onclick = () => show(b.dataset.t));
 document.getElementById("reset").onclick = () => {
   if (!confirm("Segur que vols esborrar totes les notes?")) return;
   data = {}; save(); location.reload();
