@@ -6,81 +6,114 @@
 <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0e1116" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Notes">
-<title>Notes · 1r quadrimestre</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2224%22%20fill%3D%22%232f4b7c%22/%3E%3Crect%20x%3D%2223%22%20y%3D%2258%22%20width%3D%2215%22%20height%3D%2220%22%20rx%3D%224%22%20fill%3D%22%23fff%22%20fill-opacity%3D%22.5%22/%3E%3Crect%20x%3D%2242.5%22%20y%3D%2244%22%20width%3D%2215%22%20height%3D%2234%22%20rx%3D%224%22%20fill%3D%22%23fff%22%20fill-opacity%3D%22.75%22/%3E%3Crect%20x%3D%2262%22%20y%3D%2228%22%20width%3D%2215%22%20height%3D%2250%22%20rx%3D%224%22%20fill%3D%22%23fff%22/%3E%3Ccircle%20cx%3D%2269.5%22%20cy%3D%2217%22%20r%3D%225%22%20fill%3D%22%239db0cf%22/%3E%3C/svg%3E" type="image/svg+xml">
+<link rel="icon" href="data:image/png;base64,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" sizes="192x192" type="image/png">
+<link rel="manifest" id="manifest">
+<script>
+(function () {
+  try {
+    const base = location.href.split("#")[0].replace(/[^/]*$/, "");
+    const icon = document.querySelector('link[rel="icon"][sizes]').href;
+    const m = { name: "Calculadora de notes", short_name: "Notes", start_url: base, scope: base, display: "standalone",
+      background_color: "#f6f7f9", theme_color: "#2f4b7c", icons: [{ src: icon, sizes: "192x192", type: "image/png", purpose: "any" }] };
+    document.getElementById("manifest").href = "data:application/manifest+json," + encodeURIComponent(JSON.stringify(m));
+  } catch (e) {}
+})();
+</script>
+<title>Notes</title>
 <style>
   :root{
     --bg:#f6f7f9; --surface:#ffffff; --surface-2:#f1f3f6; --text:#14181f; --muted:#667085; --faint:#98a2b3;
-    --line:#e4e7ec; --accent:#2f4b7c; --accent-soft:#e8edf5;
-    --pass:#15803d; --pass-soft:#e7f4ec; --fail:#b42318; --fail-soft:#fbeae8; --np:#667085;
-    --seg1:#2f4b7c; --seg2:#5b77a8; --seg3:#9db0cf;
+    --line:#e4e7ec; --accent:#2f4b7c; --accent-soft:#e8edf5; --warn:#b54708; --warn-soft:#fef0e1;
+    --pass:#15803d; --pass-soft:#e7f4ec; --fail:#b42318; --fail-soft:#fbeae8;
+    --s1:#2f4b7c; --s2:#5b77a8; --s3:#9db0cf; --s4:#3f6a8a; --s5:#7d93b8; --s6:#c2cee2;
     --radius:14px;
   }
   @media (prefers-color-scheme:dark){
     :root{
       --bg:#0e1116; --surface:#161b22; --surface-2:#1d232c; --text:#e6e9ef; --muted:#97a1b0; --faint:#6b7480;
-      --line:#262d38; --accent:#8fb0e8; --accent-soft:#1d2a3f;
+      --line:#262d38; --accent:#8fb0e8; --accent-soft:#1d2a3f; --warn:#f5a524; --warn-soft:#3a2a10;
       --pass:#4ade80; --pass-soft:#14301f; --fail:#f87171; --fail-soft:#3a1717;
-      --seg1:#8fb0e8; --seg2:#5f7fb5; --seg3:#3b5379;
+      --s1:#8fb0e8; --s2:#5f7fb5; --s3:#3b5379; --s4:#a9c2ec; --s5:#4a6797; --s6:#2c3e5c;
     }
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html{-webkit-text-size-adjust:100%}
   body{margin:0;font:15px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",sans-serif;
        background:var(--bg);color:var(--text);padding-bottom:calc(32px + env(safe-area-inset-bottom))}
+  button{font:inherit;color:inherit}
   .num{font-variant-numeric:tabular-nums}
+  .hidden{display:none!important}
 
   /* Header */
-  header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  header{position:sticky;top:0;z-index:10;background:var(--bg);background:color-mix(in srgb,var(--bg) 90%,transparent);
          backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px);
-         border-bottom:1px solid var(--line);padding:calc(12px + env(safe-area-inset-top)) 16px 10px}
+         border-bottom:1px solid var(--line);padding:calc(10px + env(safe-area-inset-top)) 16px 10px}
   .hwrap{max-width:640px;margin:0 auto}
-  .brand{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
-  .brand h1{font-size:17px;font-weight:650;margin:0;letter-spacing:-.01em}
-  .brand span{font-size:12.5px;color:var(--muted)}
-  nav{display:flex;background:var(--surface-2);border-radius:10px;padding:3px;gap:2px}
-  nav button{flex:1;border:0;background:transparent;color:var(--muted);font:inherit;font-size:13.5px;font-weight:600;
-             padding:7px 4px;border-radius:8px;cursor:pointer;transition:background .15s,color .15s}
-  nav button.active{background:var(--surface);color:var(--text);box-shadow:0 1px 2px rgba(16,24,40,.08)}
+  .bar{display:flex;align-items:center;gap:10px;min-height:36px}
+  .back{border:0;background:none;color:var(--accent);font-size:16px;font-weight:600;padding:6px 6px 6px 0;cursor:pointer;display:flex;align-items:center;gap:2px}
+  .back svg{width:20px;height:20px}
+  .ttl{flex:1;min-width:0}
+  .ttl h1{font-size:17px;font-weight:650;margin:0;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ttl span{display:block;font-size:12px;color:var(--muted)}
+  .logo{width:34px;height:34px;flex:none}
+  .act{border:0;background:var(--accent-soft);color:var(--accent);font-size:14px;font-weight:600;padding:7px 12px;border-radius:9px;cursor:pointer}
+  nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:10px -16px 0;padding:0 16px}
+  nav::-webkit-scrollbar{display:none}
+  nav button{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--muted);font-size:13.5px;font-weight:600;
+             padding:6px 12px;border-radius:999px;cursor:pointer;white-space:nowrap}
+  nav button.active{background:var(--text);border-color:var(--text);color:var(--bg)}
 
   main{max-width:640px;margin:0 auto;padding:16px}
-  section.hidden{display:none}
 
   /* Cards */
   .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:12px}
-  .card-title{display:flex;justify-content:space-between;align-items:center;margin:0 0 12px}
+  .card-title{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 0 12px}
   .card-title h3{font-size:12px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0}
-  .card-title .sum{font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:999px}
+  .chip{font-size:12px;font-weight:650;color:var(--accent);background:var(--accent-soft);padding:3px 8px;border-radius:999px;white-space:nowrap}
+  .gval{font-size:13px;color:var(--muted);margin:-6px 0 8px}
+  .gval b{color:var(--text)}
 
-  /* Subject heading */
+  /* Home */
+  .home-hero{display:flex;align-items:center;gap:14px;margin:8px 2px 20px}
+  .home-hero svg{width:56px;height:56px;flex:none}
+  .home-hero h2{margin:0;font-size:24px;letter-spacing:-.02em}
+  .home-hero p{margin:2px 0 0;color:var(--muted);font-size:14px}
+  .quad{display:flex;align-items:center;gap:14px;width:100%;text-align:left;cursor:pointer;background:var(--surface);
+        border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:12px}
+  .quad .badge{width:48px;height:48px;border-radius:12px;background:var(--accent-soft);color:var(--accent);
+               display:flex;align-items:center;justify-content:center;font-weight:750;font-size:16px;flex:none}
+  .quad .info{flex:1;min-width:0}
+  .quad .info b{display:block;font-size:16px}
+  .quad .info small{color:var(--muted);font-size:13px}
+  .quad .avgv{font-size:22px;font-weight:720;letter-spacing:-.02em}
+  .chev{color:var(--faint);font-size:20px;line-height:1}
+
+  /* Subject */
   .subj-head{margin:4px 2px 14px}
   .subj-head .code{font-size:12px;font-weight:650;color:var(--accent);letter-spacing:.06em}
   .subj-head h2{font-size:22px;margin:2px 0 0;letter-spacing:-.02em;font-weight:680}
-
-  /* Grade hero */
   .hero{display:flex;align-items:center;gap:16px}
   .hero .big{font-size:44px;font-weight:720;letter-spacing:-.03em;line-height:1;min-width:110px}
+  .hero .big small{font-size:16px;font-weight:600;color:var(--faint);letter-spacing:0;margin-left:2px}
   .hero .meta{flex:1;min-width:0}
   .status{display:inline-block;font-size:11.5px;font-weight:650;letter-spacing:.04em;text-transform:uppercase;
           padding:3px 8px;border-radius:6px;background:var(--surface-2);color:var(--muted)}
   .status.pass{background:var(--pass-soft);color:var(--pass)}
   .status.fail{background:var(--fail-soft);color:var(--fail)}
   .hero .sub{font-size:13px;color:var(--muted);margin-top:6px}
-  .c-pass{color:var(--pass)} .c-fail{color:var(--fail)} .c-none{color:var(--faint)}
+  .c-pass{color:var(--pass)} .c-fail{color:var(--fail)} .c-none{color:var(--faint)} .c-neutral{color:var(--text)}
   .progress{height:6px;background:var(--surface-2);border-radius:99px;overflow:hidden;margin-top:14px}
   .progress > i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .3s}
   .progress-lbl{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px}
-
-  .breakdown{margin-top:14px;border-top:1px solid var(--line);padding-top:6px}
-  .bd{display:flex;justify-content:space-between;padding:6px 0;font-size:14px}
-  .bd span:first-child{color:var(--muted)}
-  .bd span:last-child{font-weight:600}
   .hint{margin-top:12px;font-size:13.5px;background:var(--surface-2);border-radius:10px;padding:10px 12px;line-height:1.45}
   .hint:empty{display:none}
   .hint p{margin:0} .hint p + p{margin-top:6px}
 
-  /* Weight bar */
   .wbar{display:flex;gap:3px;height:10px;margin-bottom:10px}
   .wbar .seg{position:relative;border-radius:3px;overflow:hidden;background:var(--surface-2)}
   .wbar .seg i{position:absolute;inset:0 auto 0 0;transition:width .3s}
@@ -89,430 +122,639 @@
   .legend b{font-weight:650}
   .legend .dot{width:9px;height:9px;border-radius:2px}
   .wnote{font-size:12.5px;color:var(--muted);margin-top:10px}
+  .warn{font-size:12.5px;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:6px 10px;margin-top:10px}
 
   /* Inputs */
   .field{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
-  .field:first-of-type{border-top:0;padding-top:2px}
+  .field:first-child{border-top:0}
   .field .lbl{flex:1;min-width:0}
   .field .lbl div{font-size:15px}
   .field .lbl small{display:block;font-size:12px;color:var(--muted)}
   .w{font-size:12px;font-weight:650;color:var(--accent);background:var(--accent-soft);padding:3px 7px;border-radius:6px;white-space:nowrap}
+  .w.alt{color:var(--muted);background:var(--surface-2)}
   input[type=number]{width:78px;font:inherit;font-size:17px;font-weight:600;padding:8px 10px;border:1px solid var(--line);border-radius:10px;
-       background:var(--surface-2);color:var(--text);text-align:right;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+       background:var(--surface-2);color:var(--text);text-align:right;font-variant-numeric:tabular-nums;-moz-appearance:textfield;flex:none}
   input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-  input[type=number]:focus{outline:none;border-color:var(--accent);background:var(--surface);box-shadow:0 0 0 3px var(--accent-soft)}
-  input[type=number]::placeholder{color:var(--faint);font-weight:400}
+  input:focus{outline:none;border-color:var(--accent)!important;background:var(--surface)!important;box-shadow:0 0 0 3px var(--accent-soft)}
+  input::placeholder{color:var(--faint);font-weight:400}
   input.bad{border-color:var(--fail);box-shadow:0 0 0 3px var(--fail-soft)}
-
-  .lab{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:10px}
-  .lab-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
-  .lab-head b{font-size:14px}
-  .lab-head .r{display:flex;align-items:center;gap:8px}
-  .lab-head .nl{font-weight:650;font-size:14px;min-width:38px;text-align:right}
-  .switch{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted);padding:6px 0}
-  .switch input{appearance:none;-webkit-appearance:none;width:38px;height:22px;border-radius:99px;background:var(--line);position:relative;cursor:pointer;transition:background .2s;margin:0}
-  .switch input::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2);transition:transform .2s}
+  .box{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:10px}
+  .box .box{margin-left:0}
+  .box-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:2px}
+  .box-head b{font-size:14px}
+  .box-head .r{display:flex;align-items:center;gap:8px}
+  .box-head .gv{font-weight:650;font-size:14px;min-width:38px;text-align:right}
+  .box.off > .field, .box.off > .box{opacity:.4;pointer-events:none}
+  .switch{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13.5px;color:var(--muted);padding:6px 0;cursor:pointer}
+  .switch input{appearance:none;-webkit-appearance:none;width:40px;height:24px;border-radius:99px;background:var(--line);position:relative;cursor:pointer;transition:background .2s;margin:0;flex:none}
+  .switch input::after{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2);transition:transform .2s}
   .switch input:checked{background:var(--accent)}
   .switch input:checked::after{transform:translateX(16px)}
-  .lab.off .field{opacity:.4;pointer-events:none}
-
   .formula{font:12.5px/1.7 ui-monospace,"SF Mono",Menlo,Consolas,monospace;color:var(--muted);white-space:pre-wrap;margin:0}
 
   /* Summary */
   .srow{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line);cursor:pointer}
-  .srow:first-of-type{border-top:0;padding-top:2px}
+  .srow:first-child{border-top:0;padding-top:2px}
   .srow .info{flex:1;min-width:0}
   .srow .info .n{font-weight:600;font-size:15px}
   .srow .info .c{font-size:12px;color:var(--muted)}
-  .srow .mini{height:4px;background:var(--surface-2);border-radius:99px;overflow:hidden;margin-top:7px}
-  .srow .mini i{display:block;height:100%;background:var(--accent)}
-  .srow .g{text-align:right}
-  .srow .g .v{font-size:22px;font-weight:700;letter-spacing:-.02em}
-  .srow .chev{color:var(--faint);font-size:18px}
+  .mini{height:4px;background:var(--surface-2);border-radius:99px;overflow:hidden;margin-top:7px}
+  .mini i{display:block;height:100%;background:var(--accent)}
+  .srow .v{font-size:22px;font-weight:700;letter-spacing:-.02em}
   .avg{display:flex;justify-content:space-between;align-items:center}
   .avg .v{font-size:28px;font-weight:720;letter-spacing:-.02em}
   .avg small{display:block;color:var(--muted);font-size:12.5px}
+  .empty{text-align:center;padding:28px 12px;color:var(--muted)}
+  .empty b{display:block;color:var(--text);font-size:16px;margin-bottom:4px}
 
-  .btn{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--fail);font:inherit;font-weight:600;cursor:pointer}
+  .btn{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);font-weight:600;cursor:pointer;margin-bottom:10px}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  @media (prefers-color-scheme:dark){ .btn.primary{color:#0e1116} }
+  .btn.danger{color:var(--fail)}
+  .btn.ghost{color:var(--muted)}
   .foot{font-size:12.5px;color:var(--muted);text-align:center;margin:8px 0 14px}
+
+  /* Editor */
+  .ef{display:block;margin-bottom:12px}
+  .ef span{display:block;font-size:12.5px;color:var(--muted);margin-bottom:5px;font-weight:600}
+  .ef input[type=text], .ef input[type=number]{width:100%;font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;
+       background:var(--surface-2);color:var(--text);text-align:left}
+  .ef small{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+  .trow{display:flex;align-items:center;gap:8px;padding:10px 0 10px calc(var(--d) * 18px);border-top:1px solid var(--line);cursor:pointer}
+  .trow .ti{width:16px;color:var(--faint);text-align:center;flex:none}
+  .trow .tn{flex:1;min-width:0;font-size:15px}
+  .trow .tn.g{font-weight:650}
+  .trow .tn small{display:block;font-size:12px;color:var(--muted);font-weight:400}
+  .trow .tw{font-size:13px;font-weight:650;color:var(--accent)}
+  .trow .te{color:var(--faint);font-size:15px}
+  .tadd{display:flex;flex-wrap:wrap;gap:8px;padding:6px 0 10px calc(var(--d) * 18px + 24px)}
+  .tadd button{white-space:nowrap;border:1px dashed var(--line);background:none;color:var(--accent);font-size:13px;font-weight:600;padding:6px 10px;border-radius:8px;cursor:pointer}
+  .twarn{font-size:12px;color:var(--warn);padding:0 0 6px calc(var(--d) * 18px + 24px)}
+  .help{font-size:13px;color:var(--muted);line-height:1.5}
+  .help p{margin:0 0 6px}
+
+  /* Sheet */
+  .sheet{position:fixed;inset:0;z-index:50;display:flex;align-items:flex-end;justify-content:center}
+  .sheet-bg{position:absolute;inset:0;background:rgba(10,14,20,.45)}
+  .sheet-panel{position:relative;width:100%;max-width:640px;max-height:88vh;overflow:auto;background:var(--surface);
+        border-radius:18px 18px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom));animation:up .2s ease-out}
+  @keyframes up{from{transform:translateY(30px);opacity:0}}
+  .sheet-panel h4{margin:0 0 14px;font-size:17px}
+  .row2{display:flex;gap:8px}
+  .row2 .btn{margin-bottom:8px}
 </style>
 </head>
 <body>
 <header>
   <div class="hwrap">
-    <div class="brand"><h1>Calculadora de notes</h1><span>1r quadrimestre</span></div>
-    <nav id="tabs"></nav>
+    <div class="bar" id="bar"></div>
+    <nav id="tabs" class="hidden"></nav>
   </div>
 </header>
 <main id="main"></main>
+<div id="sheet" class="sheet hidden"><div class="sheet-bg"></div><div class="sheet-panel" id="sheet-panel"></div></div>
 
 <script>
-/* ---------- Dades ---------- */
-const STORE = "notes-q1-v1";
-let data = {};
-try { data = JSON.parse(localStorage.getItem(STORE)) || {}; } catch (e) { data = {}; }
-const save = () => { try { localStorage.setItem(STORE, JSON.stringify(data)); } catch (e) {} };
+/* =================== Logo =================== */
+const LOGO = `<svg class="logo" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#2f4b7c"/>
+<rect x="23" y="58" width="15" height="20" rx="4" fill="#fff" fill-opacity=".5"/><rect x="42.5" y="44" width="15" height="34" rx="4" fill="#fff" fill-opacity=".75"/>
+<rect x="62" y="28" width="15" height="50" rx="4" fill="#fff"/><circle cx="69.5" cy="17" r="5" fill="#9db0cf"/></svg>`;
 
-const g = k => (typeof data[k] === "number" ? data[k] : null);
-const has = v => v !== null && v !== undefined;
-const z = v => (has(v) ? v : 0);
+/* =================== Dades =================== */
+const STORE = "notes-app-v2", OLD = "notes-q1-v1";
+const uid = () => Math.random().toString(36).slice(2, 10);
+const L = (id, name, w, x = {}) => ({ id, type: "leaf", name, w, ...x });
+const G = (id, name, w, children, x = {}) => ({ id, type: "group", name, w, children, ...x });
+
+function defaultQ1() {
+  return [
+    { id: "pro1", name: "Programació", code: "PRO1", children: [
+      L("pro1.P", "Examen parcial", 40, { np: true }),
+      L("pro1.F", "Examen final", 60, { replace: true, np: true, desc: "Si és més alta que la mitjana ponderada, compta el 100%" }),
+    ]},
+    { id: "fm", name: "Fonaments Matemàtics", code: "FM", children: [
+      G("fm.par", "Parcials", 80, [L("fm.P1", "Parcial 1", 50), L("fm.P2", "Parcial 2", 50)]),
+      G("fm.lab", "Laboratori", 20, [L("fm.L1", "Prova de laboratori 1", 50), L("fm.L2", "Prova de laboratori 2", 50)]),
+      L("fm.F", "Examen final", 0, { replace: true, desc: "Opcional · si és més alta, substitueix tota la nota" }),
+    ]},
+    { id: "fis", name: "Física", code: "FIS", children: [
+      G("fis.teo", "Teoria", 90, [
+        L("fis.P1", "Parcial 1", 50, { desc: "Temes 1 i 2" }),
+        L("fis.P2", "Parcial 2", 50, { desc: "Temes 3 i 4" }),
+        L("fis.EF", "Examen final", 0, { replace: true, desc: "Opcional · si és més alta, substitueix la teoria" }),
+      ]),
+      G("fis.lab", "Laboratori", 10, [
+        ...[1, 2, 3, 4, 5].map(i => L("fis.Pr" + i, "Pràctica " + i, 15)),
+        L("fis.ExLab", "Examen de laboratori (oral)", 25),
+      ]),
+    ]},
+    { id: "ic", name: "Introducció als Computadors", code: "IC", children: [
+      G("ic.teo", "Teoria i problemes", 80, [
+        L("ic.NP1", "Parcial 1", 40),
+        L("ic.NP2", "Parcial 2", 60, { np: true }),
+        L("ic.EF", "Examen final", 0, { replace: true, np: true, desc: "Opcional · si és més alta, substitueix la teoria" }),
+      ]),
+      G("ic.lab", "Laboratori", 20, [1, 2, 3, 4, 5, 6].map(i =>
+        G("ic.lab" + i, "Pràctica " + i, 100 / 6, [L("ic.PP" + i, "Prova prèvia", 65), L("ic.IF" + i, "Informe final", 35)],
+          { gate: "Informe previ entregat", np: i >= 3 }))),
+    ]},
+  ];
+}
+const freshState = () => ({ quads: [
+  { id: "q1", short: "Q1", name: "1r quadrimestre", subjects: defaultQ1() },
+  { id: "q2", short: "Q2", name: "2n quadrimestre", subjects: [] },
+]});
+
+function walk(n, fn, parent = null) { fn(n, parent); (n.children || []).forEach(c => walk(c, fn, n)); }
+
+function load() {
+  let st = null;
+  try { st = JSON.parse(localStorage.getItem(STORE)); } catch (e) {}
+  if (st && st.quads) return st;
+  st = freshState();
+  let old = null;
+  try { old = JSON.parse(localStorage.getItem(OLD)); } catch (e) {}
+  if (old) st.quads[0].subjects.forEach(s => walk(s, n => {
+    if (n.type === "leaf" && typeof old[n.id] === "number") n.v = old[n.id];
+    const m = /^ic\.lab(\d)$/.exec(n.id);
+    if (m && old["ic.inf" + m[1]] === false) n.gateOn = false;
+  }));
+  return st;
+}
+let state = load();
+const save = () => { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch (e) {} };
+save();
+
+/* =================== Utilitats =================== */
+const has = v => typeof v === "number" && !isNaN(v);
 const r2 = v => Math.round(v * 100) / 100;
-const fmt = v => (has(v) && !isNaN(v) ? r2(v).toFixed(2).replace(".", ",") : "—");
-const pct = w => (Math.round(w * 1000) / 10).toString().replace(".", ",") + "%";
-const sum = items => items.reduce((a, it) => a + it.w * it.v, 0);
-const wsum = items => items.reduce((a, it) => a + it.w, 0);
-const infOn = i => data["ic.inf" + i] !== false;
+const fmt = v => (has(v) ? r2(v).toFixed(2).replace(".", ",") : "—");
+const pct = f => (Math.round(f * 10000) / 100).toString().replace(".", ",") + "%";
+const pctW = w => (Math.round(w * 100) / 100).toString().replace(".", ",") + "%";
+const dec = w => (Math.round(w / 100 * 10000) / 10000).toString().replace(".", ",");
 const ceil2 = x => Math.ceil(x * 100 - 1e-9) / 100;
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const $ = id => document.getElementById(id);
 
-function need(x, what) {
-  if (x <= 0) return `Ja tens el 5 assegurat 🎉`;
-  if (x > 10) return `Ni amb un 10 a ${what} arribaries al 5.`;
-  return `Et cal un <b>${fmt(ceil2(x))}</b> ${what}.`;
+/* =================== Càlcul =================== */
+const isLeaf = n => n.type === "leaf";
+const gateOff = n => !!n.gate && n.gateOn === false;
+// Punts assegurats (el que falta compta com a 0)
+function val(n) {
+  if (isLeaf(n)) return has(n.v) ? n.v : 0;
+  if (gateOff(n)) return 0;
+  let s = 0;
+  for (const c of n.children) s += (c.w / 100) * val(c);
+  for (const c of n.children) if (isLeaf(c) && c.replace && has(c.v)) s = Math.max(s, c.v);
+  return s;
+}
+// Fracció avaluada (0..1)
+function evl(n) {
+  if (isLeaf(n)) return has(n.v) ? 1 : 0;
+  if (gateOff(n)) return 1;
+  if (n.children.some(c => isLeaf(c) && c.replace && has(c.v))) return 1;
+  let e = 0;
+  for (const c of n.children) e += (c.w / 100) * evl(c);
+  return Math.min(1, e);
+}
+const filled = n => (isLeaf(n) ? has(n.v) : gateOff(n) || n.children.some(filled));
+const hasReplacerPending = n => { let r = false; walk(n, c => { if (isLeaf(c) && c.replace && !has(c.v)) r = true; }); return r; };
+
+function summary(s) {
+  const S = val(s), E = evl(s), any = filled(s);
+  const complete = E >= 0.999;
+  const max = hasReplacerPending(s) && !complete ? 10 : Math.min(10, S + (1 - E) * 10);
+  return { S, E, any, complete, max };
 }
 
-/* ---------- Assignatures ---------- */
-const AC_LAB_IC = 0.2 / 6;
-
-const SUBJECTS = [
-  {
-    id: "pro1", code: "PRO1", name: "Programació",
-    segs: [{ l: "Parcial", w: .4, keys: ["P"] }, { l: "Final", w: .6, keys: ["F"] }],
-    wnote: "Si la nota del final és més alta, el final compta el 100%.",
-    groups: [{ title: "Exàmens", fields: [
-      { k: "P", label: "Examen parcial", sub: "En blanc = NP", w: "40%" },
-      { k: "F", label: "Examen final", sub: "En blanc = NP", w: "60% / 100%" },
-    ]}],
-    formula: "N = max(0,4·P + 0,6·F , F)\nNP si parcial i final són NP.",
-    calc() {
-      const P = g("pro1.P"), F = g("pro1.F");
-      const r = { items: [], bd: [], hints: [] };
-      if (!has(P) && !has(F)) { r.np = true; return r; }
-      if (has(F)) {
-        const mix = 0.4 * z(P) + 0.6 * F;
-        r.items = [{ w: 1, v: Math.max(mix, F) }];
-        r.bd = [["0,4·P + 0,6·F", mix], ["Només el final", F]];
-      } else {
-        r.items = [{ w: .4, v: P }];
-        r.bd = [["Parcial (40%)", P]];
-        r.hints.push(need(Math.min((5 - 0.4 * P) / 0.6, 5), "a l'examen final per aprovar"));
+function hints(s) {
+  const out = [];
+  if (!filled(s)) return out;
+  const S = val(s), E = evl(s), R = Math.max(0, 1 - E);
+  if (S >= 5 - 1e-9) out.push(E >= 0.999 ? "Assignatura aprovada 🎉" : "Ja tens el 5 assegurat 🎉 El que falta només pot pujar la nota.");
+  else {
+    let x = null;
+    if (R > 0.001) {
+      x = (5 - S) / R;
+      out.push(x <= 10 ? `Et cal una mitjana de <b>${fmt(ceil2(x))}</b> en el que queda (${pct(R)} de la nota).`
+                       : `Ni amb un 10 en tot el que queda (${pct(R)} de la nota) arribaries al 5.`);
+    }
+    (function rec(g, eff) {
+      for (const c of g.children) {
+        if (isLeaf(c)) {
+          if (c.replace && !has(c.v) && eff > 0) {
+            const r = (5 - (S - eff * val(g))) / eff;
+            if (r <= 10 && (c.w === 0 || x === null || r < x - 1e-9)) {
+              const pre = x !== null && x <= 10 ? "O bé un" : "Pots aprovar amb un";
+              out.push(`${pre} <b>${fmt(ceil2(Math.max(0, r)))}</b> a «${esc(c.name)}»${eff < 0.999 && R > 0.001 ? " (comptant la resta del que falta com a 0)" : ""}.`);
+            }
+          }
+        } else if (!gateOff(c)) rec(c, eff * c.w / 100);
       }
-      return r;
-    },
-  },
-  {
-    id: "fm", code: "FM", name: "Fonaments Matemàtics",
-    segs: [{ l: "Parcial 1", w: .4, keys: ["P1"] }, { l: "Parcial 2", w: .4, keys: ["P2"] }, { l: "Laboratori", w: .2, keys: ["L1", "L2"] }],
-    wnote: "Alternativa: l'examen final compta el 100%. Es queda la nota més alta.",
-    groups: [
-      { title: "Avaluació continuada", fields: [
-        { k: "P1", label: "Parcial 1", w: "40%" },
-        { k: "P2", label: "Parcial 2", w: "40%" },
-        { k: "L1", label: "Laboratori · prova 1", w: "10%" },
-        { k: "L2", label: "Laboratori · prova 2", w: "10%" },
-      ]},
-      { title: "Examen final (opcional)", fields: [{ k: "F", label: "Examen final", sub: "Substitueix l'AC si és més alt", w: "100%" }] },
-    ],
-    formula: "AC = 0,4·P1 + 0,4·P2 + 0,2·L\nL  = (Lab1 + Lab2) / 2\nNota = max(AC, F)",
-    calc() {
-      const P1 = g("fm.P1"), P2 = g("fm.P2"), L1 = g("fm.L1"), L2 = g("fm.L2"), F = g("fm.F");
-      const ac = [{ w: .4, v: P1 }, { w: .4, v: P2 }, { w: .1, v: L1 }, { w: .1, v: L2 }].filter(i => has(i.v));
-      const r = { items: ac, bd: [], hints: [] };
-      const labs = [L1, L2].filter(has);
-      if (labs.length) r.bd.push(["Laboratori L (mitjana)", labs.reduce((a, b) => a + b, 0) / labs.length]);
-      if (ac.length) r.bd.push([wsum(ac) < .999 ? "AC fins ara" : "Avaluació continuada", sum(ac) / wsum(ac)]);
-      if (has(F)) {
-        r.items = [{ w: 1, v: Math.max(sum(ac), F) }];
-        r.bd.push(["Examen final", F]);
-        return r;
-      }
-      const rem = 1 - wsum(ac);
-      if (rem > .001) r.hints.push(need((5 - sum(ac)) / rem, `de mitjana en el que queda d'AC (${pct(rem)})`) + " O bé un <b>5,00</b> al final.");
-      else if (sum(ac) < 5) r.hints.push("No arribes al 5 per AC. Et cal un <b>5,00</b> a l'examen final.");
-      else r.hints.push("Aprovada per avaluació continuada 🎉 El final només pot pujar la nota.");
-      return r;
-    },
-  },
-  {
-    id: "fis", code: "F", name: "Física",
-    segs: [{ l: "Parcial 1", w: .45, keys: ["P1"] }, { l: "Parcial 2", w: .45, keys: ["P2"] }, { l: "Laboratori", w: .1, keys: ["Pr1", "Pr2", "Pr3", "Pr4", "Pr5", "ExLab"] }],
-    wnote: "Teoria 90% · Laboratori 10%. L'examen final (opcional) substitueix la mitjana dels parcials si és més alt.",
-    groups: [
-      { title: "Teoria · 90%", fields: [
-        { k: "P1", label: "Parcial 1", sub: "Temes 1 i 2", w: "45%" },
-        { k: "P2", label: "Parcial 2", sub: "Temes 3 i 4", w: "45%" },
-      ]},
-      { title: "Laboratori · 10%", fields: [
-        { k: "Pr1", label: "Pràctica 1", w: "1,5%" },
-        { k: "Pr2", label: "Pràctica 2", w: "1,5%" },
-        { k: "Pr3", label: "Pràctica 3", w: "1,5%" },
-        { k: "Pr4", label: "Pràctica 4", w: "1,5%" },
-        { k: "Pr5", label: "Pràctica 5", w: "1,5%" },
-        { k: "ExLab", label: "Examen de lab (oral)", sub: "25% del laboratori", w: "2,5%" },
-      ]},
-      { title: "Examen final (opcional)", fields: [{ k: "EF", label: "Examen final", sub: "Substitueix (P1+P2)/2 si és més alt", w: "90%" }] },
-    ],
-    formula: "L  = 0,75·mitjana(pràctiques) + 0,25·ExLab\nAC = 0,90·(P1+P2)/2 + 0,10·L\nEF = 0,90·max(EF, (P1+P2)/2) + 0,10·L",
-    calc() {
-      const P1 = g("fis.P1"), P2 = g("fis.P2"), EF = g("fis.EF");
-      const lab = [1, 2, 3, 4, 5].map(i => ({ w: .015, v: g("fis.Pr" + i) })).concat([{ w: .025, v: g("fis.ExLab") }]).filter(i => has(i.v));
-      const r = { items: [], bd: [], hints: [] };
-      const Lp = lab.length ? sum(lab) / wsum(lab) : null;
-      const prs = [1, 2, 3, 4, 5].map(i => g("fis.Pr" + i)).filter(has);
-      if (prs.length) r.bd.push(["Mitjana pràctiques", prs.reduce((a, b) => a + b, 0) / prs.length]);
-      if (has(Lp)) r.bd.push([wsum(lab) < .0999 ? "Laboratori L fins ara" : "Laboratori L", Lp]);
-      const ps = [P1, P2].filter(has);
-      if (ps.length) r.bd.push([ps.length < 2 ? "Parcials fins ara" : "Mitjana parcials", ps.reduce((a, b) => a + b, 0) / ps.length]);
-      if (has(EF)) {
-        r.items = [{ w: .9, v: Math.max(EF, (z(P1) + z(P2)) / 2) }].concat(lab);
-        r.bd.push(["Examen final", EF]);
-      } else {
-        r.items = [{ w: .45, v: P1 }, { w: .45, v: P2 }].filter(i => has(i.v)).concat(lab);
-        const rem = 1 - wsum(r.items);
-        const Lest = z(Lp);
-        if (rem > .001) {
-          if (has(P1) && !has(P2)) {
-            const reqP2 = ((5 - 0.1 * Lest) / 0.9) * 2 - P1;
-            r.hints.push(need(reqP2, "al Parcial 2").replace(/\.$/, "") + (has(Lp) ? " (si mantens la nota de laboratori)." : " (comptant el lab a 0; omple'l per afinar)."));
-          } else if (r.items.length) r.hints.push(need((5 - sum(r.items)) / rem, `de mitjana en el que queda (${pct(rem)})`));
-        }
-        if (has(P1) && has(P2)) {
-          const ac = 0.9 * (P1 + P2) / 2 + 0.1 * Lest;
-          if (ac < 5) r.hints.push(need((5 - 0.1 * Lest) / 0.9, "a l'examen final per aprovar"));
-          else if (rem <= .001) r.hints.push("Aprovada per avaluació contínua 🎉");
-        }
-      }
-      return r;
-    },
-  },
-  {
-    id: "ic", code: "IC", name: "Introducció als Computadors",
-    segs: [{ l: "Parcial 1", w: .32, keys: ["NP1"] }, { l: "Parcial 2", w: .48, keys: ["NP2"] }, { l: "Laboratori", w: .2, keys: [1, 2, 3, 4, 5, 6].flatMap(i => ["PP" + i, "IF" + i]) }],
-    wnote: "Teoria i problemes 80% (P1 40% · P2 60%) · Laboratori 20%. L'examen final pot substituir la nota de teoria.",
-    groups: [
-      { title: "Teoria i problemes · 80%", fields: [
-        { k: "NP1", label: "Parcial 1 (NP1)", sub: "40% de la teoria", w: "32%" },
-        { k: "NP2", label: "Parcial 2 (NP2)", sub: "60% de la teoria", w: "48%" },
-        { k: "EF", label: "Examen final (opcional)", sub: "Substitueix NTP si és més alt", w: "80%" },
-      ]},
-      { title: "Laboratori · 20%", labs: true },
-    ],
-    formula: "NLi = 0,65·PPi + 0,35·IFi   (0 sense informe previ)\nNL  = mitjana de les 6 pràctiques\nNTP = max(0,4·NP1 + 0,6·NP2 , EF)\nNF  = 0,8·NTP + 0,2·NL\nNP si no fas NP2, L3–L6 ni l'EF.",
-    calc() {
-      const NP1 = g("ic.NP1"), NP2 = g("ic.NP2"), EF = g("ic.EF");
-      const lab = [];
-      const done = [];
-      for (let i = 1; i <= 6; i++) {
-        const PP = g("ic.PP" + i), IF = g("ic.IF" + i);
-        const it = infOn(i) ? [{ w: AC_LAB_IC * .65, v: PP }, { w: AC_LAB_IC * .35, v: IF }].filter(x => has(x.v))
-                            : [{ w: AC_LAB_IC, v: 0 }];
-        lab.push(...it);
-        done[i] = it.length > 0;
-        const el = document.getElementById("ic-nl" + i);
-        if (el) el.textContent = !infOn(i) ? "0,00" : it.length ? fmt(sum(it) / wsum(it)) : "—";
-      }
-      const r = { items: [], bd: [], hints: [] };
-      const NLp = lab.length ? sum(lab) / wsum(lab) : null;
-      if (has(NLp)) r.bd.push([wsum(lab) < .1999 ? "Laboratori NL fins ara" : "Laboratori NL", NLp]);
-      const t = [{ w: .32, v: NP1 }, { w: .48, v: NP2 }].filter(i => has(i.v));
-      if (t.length) r.bd.push([t.length < 2 ? "NTP fins ara" : "NTP (avaluació contínua)", sum(t) / wsum(t)]);
-      const anything = t.length || lab.length || has(EF);
-      if (anything && !(has(NP2) || done[3] || done[4] || done[5] || done[6] || has(EF)))
-        r.hints.push("Atenció: si no et presentes a NP2, a les pràctiques L3–L6 ni a l'EF, la nota serà <b>NP</b>.");
-      if (has(EF)) {
-        r.items = [{ w: .8, v: Math.max(0.4 * z(NP1) + 0.6 * z(NP2), EF) }].concat(lab);
-        r.bd.push(["Examen final", EF]);
-      } else {
-        r.items = t.concat(lab);
-        const rem = 1 - wsum(r.items);
-        const NLest = z(NLp);
-        if (rem > .001) {
-          if (has(NP1) && !has(NP2)) {
-            const req = ((5 - 0.2 * NLest) / 0.8 - 0.4 * NP1) / 0.6;
-            r.hints.push(need(req, "al Parcial 2").replace(/\.$/, "") + (has(NLp) ? " (si mantens la nota de laboratori)." : " (comptant el lab a 0; omple'l per afinar)."));
-          } else if (r.items.length) r.hints.push(need((5 - sum(r.items)) / rem, `de mitjana en el que queda (${pct(rem)})`));
-        }
-        if (has(NP1) && has(NP2)) {
-          const nf = 0.8 * (0.4 * NP1 + 0.6 * NP2) + 0.2 * NLest;
-          if (nf < 5) r.hints.push(need((5 - 0.2 * NLest) / 0.8, "a l'examen final per aprovar"));
-          else if (rem <= .001) r.hints.push("Aprovada per avaluació contínua 🎉");
-        }
-      }
-      return r;
-    },
-  },
-];
+    })(s, 1);
+    if (R <= 0.001 && out.length === 0) out.push("Amb aquestes notes l'assignatura queda suspesa.");
+  }
+  const np = [];
+  walk(s, n => { if (n !== s && n.np) np.push(n); });
+  if (np.length && !np.some(filled)) out.push(`Si no et presentes a cap d'aquestes proves, la nota serà <b>NP</b>: ${np.map(n => esc(n.name)).join(", ")}.`);
+  return out;
+}
 
-/* ---------- Construcció de la interfície ---------- */
-const main = document.getElementById("main");
-const tabs = document.getElementById("tabs");
-tabs.innerHTML = `<button data-t="resum" class="active">Resum</button>` + SUBJECTS.map(s => `<button data-t="${s.id}">${s.code === "F" ? "Física" : s.code}</button>`).join("");
+function formulas(s) {
+  const lines = [];
+  const rhs = g => {
+    const parts = g.children.filter(c => c.w > 0);
+    let e;
+    const eq = parts.length >= 3 && parts.every(c => Math.abs(c.w - parts[0].w) < 0.01) && Math.abs(parts.reduce((a, c) => a + c.w, 0) - 100) < 0.1;
+    if (!parts.length) e = "0";
+    else if (eq) e = `mitjana(${parts.length > 3 ? parts[0].name + " … " + parts[parts.length - 1].name : parts.map(c => c.name).join(", ")})`;
+    else e = parts.map(c => `${dec(c.w)}·${c.name}`).join(" + ");
+    const reps = g.children.filter(c => isLeaf(c) && c.replace);
+    const repsAlone = reps.filter(c => !(c.w > 0 && parts.length === 1));
+    if (repsAlone.length) e = `max(${e}, ${repsAlone.map(c => c.name).join(", ")})`;
+    if (g.gate) e += `   (0 sense «${g.gate}»)`;
+    return e;
+  };
+  (function rec(g, name) {
+    lines.push(`${name} = ${rhs(g)}`);
+    const groups = g.children.filter(c => !isLeaf(c));
+    const byR = new Map();
+    for (const c of groups) { const k = rhs(c); if (!byR.has(k)) byR.set(k, []); byR.get(k).push(c); }
+    for (const [, list] of byR) {
+      if (list.length === 1) rec(list[0], list[0].name);
+      else {
+        const nm = list.length > 2 ? `${list[0].name} … ${list[list.length - 1].name}` : list.map(c => c.name).join(", ");
+        rec(list[0], nm);
+      }
+    }
+  })(s, "Nota");
+  return lines.join("\n");
+}
 
-const segColor = i => `var(--seg${i + 1})`;
+/* =================== Navegació =================== */
+const bar = $("bar"), tabs = $("tabs"), main = $("main");
+const BACK = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>`;
+const getQ = id => state.quads.find(q => q.id === id);
+const go = h => { location.hash = h; };
 
-let html = `
-<section id="resum">
-  <div class="card"><div class="card-title"><h3>Assignatures</h3></div><div id="summary"></div></div>
-  <div class="card avg"><div><b>Mitjana provisional</b><small id="avg-sub">Mitjana de les assignatures amb nota</small></div><span class="v num" id="avg">—</span></div>
-  <p class="foot">La nota provisional es calcula només amb el que ja tens avaluat. Les notes es guarden en aquest dispositiu.</p>
-  <button class="btn" id="reset">Esborrar totes les notes</button>
-</section>`;
+function route() {
+  closeSheet();
+  const [qid, sid, mode] = location.hash.replace(/^#/, "").split("/");
+  const q = qid && getQ(qid);
+  if (!q) return renderHome();
+  if (!sid) return renderQuad(q);
+  const s = q.subjects.find(x => x.id === sid);
+  if (!s) return go(q.id);
+  if (mode === "edit") return renderEdit(q, s);
+  renderSubject(q, s);
+}
+window.addEventListener("hashchange", () => { route(); window.scrollTo(0, 0); });
 
-for (const s of SUBJECTS) {
-  html += `<section id="${s.id}" class="hidden">
-    <div class="subj-head"><div class="code">${s.code}</div><h2>${s.name}</h2></div>
+function setHeader({ back, title, sub, action, logo }) {
+  bar.innerHTML = (back ? `<button class="back" id="h-back">${BACK}${esc(back.label)}</button>` : "") +
+    (logo ? LOGO : "") +
+    `<div class="ttl"><h1>${esc(title)}</h1>${sub ? `<span>${esc(sub)}</span>` : ""}</div>` +
+    (action ? `<button class="act" id="h-act">${esc(action.label)}</button>` : "");
+  if (back) $("h-back").onclick = () => go(back.to);
+  if (action) $("h-act").onclick = action.fn;
+}
+function setTabs(q, activeId) {
+  if (!q) { tabs.classList.add("hidden"); return; }
+  tabs.classList.remove("hidden");
+  tabs.innerHTML = `<button data-go="${q.id}" class="${activeId ? "" : "active"}">Resum</button>` +
+    q.subjects.map(s => `<button data-go="${q.id}/${s.id}" class="${s.id === activeId ? "active" : ""}">${esc(s.code || s.name)}</button>`).join("");
+  tabs.querySelectorAll("button").forEach(b => b.onclick = () => go(b.dataset.go));
+  const a = tabs.querySelector(".active");
+  if (a) a.scrollIntoView({ inline: "center", block: "nearest" });
+}
+
+const gradeCls = (v, complete) => (!has(v) ? "c-none" : r2(v) >= 5 ? "c-pass" : complete ? "c-fail" : "c-neutral");
+
+function quadAvg(q) {
+  const xs = q.subjects.map(summary).filter(r => r.any);
+  return xs.length ? { v: xs.reduce((a, r) => a + r.S, 0) / xs.length, n: xs.length } : null;
+}
+
+/* =================== Pantalla: inici =================== */
+function renderHome() {
+  setHeader({ title: "Calculadora de notes", logo: true });
+  setTabs(null);
+  main.innerHTML = `
+    <div class="home-hero">${LOGO.replace('class="logo"', "")}<div><h2>Hola! 👋</h2><p>Tria el quadrimestre que estàs cursant.</p></div></div>
+    ${state.quads.map(q => {
+      const a = quadAvg(q);
+      const n = q.subjects.length;
+      return `<button class="quad" data-q="${q.id}">
+        <div class="badge">${esc(q.short)}</div>
+        <div class="info"><b>${esc(q.name)}</b><small>${n ? `${n} assignatur${n === 1 ? "a" : "es"}` : "Cap assignatura encara"}${a ? " · mitjana provisional" : ""}</small></div>
+        ${a ? `<span class="avgv num ${gradeCls(a.v)}">${fmt(a.v)}</span>` : ""}<span class="chev">›</span></button>`;
+    }).join("")}
+    <p class="foot">Les notes es guarden en aquest dispositiu.</p>`;
+  main.querySelectorAll(".quad").forEach(b => b.onclick = () => go(b.dataset.q));
+}
+
+/* =================== Pantalla: quadrimestre =================== */
+function renderQuad(q) {
+  setHeader({ back: { label: "Inici", to: "" }, title: q.name, sub: q.short });
+  setTabs(q, null);
+  const rows = q.subjects.map(s => {
+    const r = summary(s);
+    let v = "—", tag = "Sense notes";
+    if (r.any) { v = fmt(r.S); tag = r.complete ? (r.S >= 5 ? "Aprovada" : "Suspesa") : r.S >= 5 ? "Aprovada · ja assegurat" : `Provisional · ${pct(r.E)} avaluat`; }
+    return `<div class="srow" data-go="${q.id}/${s.id}">
+      <div class="info"><div class="n">${esc(s.name)}</div><div class="c">${esc(s.code)} · ${tag}</div><div class="mini"><i style="width:${r.E * 100}%"></i></div></div>
+      <span class="v num ${r.any ? gradeCls(r.S, r.complete) : "c-none"}">${v}</span><span class="chev">›</span></div>`;
+  }).join("");
+  const a = quadAvg(q);
+  main.innerHTML = q.subjects.length ? `
+    <div class="card"><div class="card-title"><h3>Assignatures</h3></div>${rows}</div>
+    <div class="card avg"><div><b>Mitjana provisional</b><small>${a ? `Mitjana de ${a.n} assignatur${a.n === 1 ? "a" : "es"} amb nota` : "Encara no hi ha notes"}</small></div><span class="v num ${a ? gradeCls(a.v) : "c-none"}">${a ? fmt(a.v) : "—"}</span></div>
+    <p class="foot">La nota provisional són els punts que ja tens sobre 10: el que encara no has fet compta com a 0.</p>
+    <button class="btn primary" id="add-subj">+ Afegir assignatura</button>
+    <button class="btn danger" id="clear">Esborrar les notes de ${esc(q.short)}</button>
+    ${q.id === "q1" ? `<button class="btn ghost" id="restore">Restaurar les assignatures originals de Q1</button>` : ""}`
+  : `<div class="card empty"><b>Encara no hi ha assignatures</b>Crea-les amb els seus exàmens, pràctiques i ponderacions.</div>
+     <button class="btn primary" id="add-subj">+ Afegir assignatura</button>`;
+  main.querySelectorAll(".srow").forEach(r => r.onclick = () => go(r.dataset.go));
+  $("add-subj").onclick = () => {
+    const s = { id: uid(), name: "Nova assignatura", code: "NOVA", children: [L(uid(), "Examen parcial", 40), L(uid(), "Examen final", 60)] };
+    q.subjects.push(s); save(); go(`${q.id}/${s.id}/edit`);
+  };
+  if ($("clear")) $("clear").onclick = () => {
+    if (!confirm(`Segur que vols esborrar totes les notes de ${q.short}? L'estructura de les assignatures es manté.`)) return;
+    q.subjects.forEach(s => walk(s, n => { delete n.v; if (n.gate) n.gateOn = true; }));
+    save(); route();
+  };
+  if ($("restore")) $("restore").onclick = () => {
+    if (!confirm("Això tornarà a posar les 4 assignatures originals de Q1 i esborrarà els canvis i les notes de Q1. Continuar?")) return;
+    q.subjects = defaultQ1(); save(); route();
+  };
+}
+
+/* =================== Pantalla: assignatura =================== */
+function renderSubject(q, s) {
+  setHeader({ back: { label: q.short, to: q.id }, title: s.name, sub: q.name, action: { label: "Editar", fn: () => go(`${q.id}/${s.id}/edit`) } });
+  setTabs(q, s.id);
+  const top = s.children;
+  const segs = top.filter(c => c.w > 0);
+  const topSum = top.reduce((a, c) => a + c.w, 0);
+  const reps = [];
+  walk(s, (n, p) => { if (isLeaf(n) && n.replace) reps.push(`«${esc(n.name)}» substitueix ${p === s ? "tota la nota" : `«${esc(p.name)}»`} si és més alta.`); });
+
+  let h = `
+    <div class="subj-head"><div class="code">${esc(s.code)}</div><h2>${esc(s.name)}</h2></div>
     <div class="card">
-      <div class="hero">
-        <div class="big num c-none" id="${s.id}-big">—</div>
-        <div class="meta"><span class="status" id="${s.id}-status">Sense notes</span><div class="sub" id="${s.id}-sub">Introdueix notes per veure la nota provisional.</div></div>
-      </div>
-      <div class="progress"><i id="${s.id}-prog" style="width:0"></i></div>
-      <div class="progress-lbl"><span id="${s.id}-plbl">0% avaluat</span><span id="${s.id}-sec"></span></div>
-      <div class="breakdown" id="${s.id}-bd"></div>
-      <div class="hint" id="${s.id}-hint"></div>
+      <div class="hero"><div class="big num" id="big">—</div>
+        <div class="meta"><span class="status" id="status"></span><div class="sub" id="hsub"></div></div></div>
+      <div class="progress"><i id="prog" style="width:0"></i></div>
+      <div class="progress-lbl"><span id="plbl"></span><span id="pmax"></span></div>
+      <div class="hint" id="hint"></div>
+    </div>
+    <div class="card"><div class="card-title"><h3>Ponderació</h3></div>
+      <div class="wbar">${segs.map((c, i) => `<div class="seg" style="flex:${c.w}"><i id="seg-${i}" style="width:0;background:var(--s${(i % 6) + 1})"></i></div>`).join("")}</div>
+      <div class="legend">${segs.map((c, i) => `<div><span class="dot" style="background:var(--s${(i % 6) + 1})"></span>${esc(c.name)} <b>${pctW(c.w)}</b></div>`).join("")}</div>
+      ${reps.length ? `<div class="wnote">${reps.join("<br>")}</div>` : ""}
+      ${Math.abs(topSum - 100) > 0.05 ? `<div class="warn">Els pesos sumen ${pctW(topSum)}; haurien de sumar 100%. Revisa-ho a «Editar».</div>` : ""}
+    </div>`;
+
+  // Targetes de notes
+  let run = [];
+  const flush = () => {
+    if (!run.length) return;
+    h += `<div class="card"><div class="card-title"><h3>${run.length === 1 && run[0].replace && run[0].w === 0 ? "Opcional" : "Proves"}</h3></div>${run.map(c => leafRow(c, c.w / 100, s, 1)).join("")}</div>`;
+    run = [];
+  };
+  for (const c of top) {
+    if (isLeaf(c)) { run.push(c); continue; }
+    flush();
+    const eff = c.w / 100;
+    h += `<div class="card ${gateOff(c) ? "box off" : ""}" data-gbox="${c.id}">
+      <div class="card-title"><h3>${esc(c.name)}</h3><span class="chip">${pctW(c.w)} de la nota</span></div>
+      <div class="gval">Punts de l'apartat: <b class="num" id="gv-${c.id}">—</b> / 10</div>
+      ${c.gate ? gateSwitch(c) : ""}
+      ${c.children.map(k => (isLeaf(k) ? leafRow(k, eff * k.w / 100, c, 2) : groupBox(k, eff * k.w / 100, c, 2))).join("")}
+      ${c.children.length ? "" : `<div class="wnote">Aquest apartat no té proves. Afegeix-ne a «Editar».</div>`}
+    </div>`;
+  }
+  flush();
+  if (!top.length) h += `<div class="card empty"><b>Sense proves</b>Toca «Editar» per afegir exàmens i apartats.</div>`;
+  h += `<div class="card"><div class="card-title"><h3>Fórmules</h3></div><pre class="formula">${esc(formulas(s))}</pre></div>`;
+  main.innerHTML = h;
+
+  const idx = {};
+  walk(s, n => { idx[n.id] = n; });
+  main.querySelectorAll("input[data-id]").forEach(inp => {
+    const n = idx[inp.dataset.id];
+    Object.assign(inp, { min: 0, max: 10, step: "0.01", inputMode: "decimal", placeholder: "—" });
+    if (has(n.v)) inp.value = n.v;
+    inp.addEventListener("input", () => {
+      const v = inp.value.trim();
+      if (v === "") { delete n.v; inp.classList.remove("bad"); }
+      else {
+        const x = parseFloat(v.replace(",", "."));
+        const ok = !isNaN(x) && x >= 0 && x <= 10;
+        inp.classList.toggle("bad", !ok);
+        if (ok) n.v = x; else delete n.v;
+      }
+      save(); recalc(s);
+    });
+  });
+  main.querySelectorAll("input[data-gate]").forEach(inp => {
+    const n = idx[inp.dataset.gate];
+    inp.checked = !gateOff(n);
+    inp.addEventListener("change", () => {
+      n.gateOn = inp.checked;
+      main.querySelector(`[data-gbox="${n.id}"]`).classList.toggle("off", !inp.checked);
+      save(); recalc(s);
+    });
+  });
+  recalc(s);
+}
+
+function leafRow(n, eff, parent, depth) {
+  const chip = n.replace && n.w === 0 ? `<span class="w alt">Substitueix</span>` : `<span class="w">${pct(eff)}</span>`;
+  const bits = [];
+  if (n.desc) bits.push(esc(n.desc));
+  else if (n.replace) bits.push(`Si és més alta, substitueix ${depth === 1 ? "tota la nota" : `«${esc(parent.name)}»`}`);
+  if (depth >= 2 && n.w > 0) bits.push(`${pctW(n.w)} de «${esc(parent.name)}»`);
+  return `<div class="field"><div class="lbl"><div>${esc(n.name)}</div>${bits.length ? `<small>${bits.join(" · ")}</small>` : ""}</div>${chip}<input type="number" data-id="${n.id}"></div>`;
+}
+function gateSwitch(g) {
+  return `<label class="switch">${esc(g.gate)}<input type="checkbox" data-gate="${g.id}"></label>`;
+}
+function groupBox(g, eff, parent, depth) {
+  return `<div class="box ${gateOff(g) ? "off" : ""}" data-gbox="${g.id}">
+    <div class="box-head"><b>${esc(g.name)}</b><div class="r"><span class="w">${pct(eff)}</span><span class="gv num" id="gv-${g.id}">—</span></div></div>
+    ${g.gate ? gateSwitch(g) : ""}
+    ${g.children.map(k => (isLeaf(k) ? leafRow(k, eff * k.w / 100, g, depth + 1) : groupBox(k, eff * k.w / 100, g, depth + 1))).join("")}
+  </div>`;
+}
+
+function recalc(s) {
+  const r = summary(s);
+  const big = $("big"), st = $("status");
+  if (!r.any) {
+    big.innerHTML = "—"; big.className = "big num c-none";
+    st.textContent = "Sense notes"; st.className = "status";
+    $("hsub").textContent = "Introdueix les notes que ja tens.";
+  } else {
+    big.innerHTML = `${fmt(r.S)}<small>/10</small>`;
+    big.className = "big num " + gradeCls(r.S, r.complete);
+    const pass = r2(r.S) >= 5;
+    if (r.complete) { st.textContent = pass ? "Aprovada" : "Suspesa"; st.className = "status " + (pass ? "pass" : "fail"); }
+    else if (pass) { st.textContent = "Aprovada · ja assegurat"; st.className = "status pass"; }
+    else { st.textContent = "Provisional"; st.className = "status"; }
+    $("hsub").textContent = r.complete ? "Nota final: tota l'assignatura està avaluada." : "Punts acumulats fins ara. El que falta compta com a 0.";
+  }
+  $("prog").style.width = r.E * 100 + "%";
+  $("plbl").textContent = `${pct(r.E)} avaluat`;
+  $("pmax").textContent = r.any && !r.complete ? `Màxim possible: ${fmt(r.max)}` : "";
+  $("hint").innerHTML = hints(s).map(t => `<p>${t}</p>`).join("");
+  s.children.filter(c => c.w > 0).forEach((c, i) => { const e = $("seg-" + i); if (e) e.style.width = evl(c) * 100 + "%"; });
+  walk(s, n => {
+    if (n === s || isLeaf(n)) return;
+    const e = $("gv-" + n.id);
+    if (e) e.textContent = filled(n) ? fmt(val(n)) : "—";
+  });
+}
+
+/* =================== Pantalla: editor =================== */
+function findWithParent(root, id) {
+  let res = null;
+  walk(root, (n, p) => { if (n.id === id) res = { n, p }; });
+  return res;
+}
+const sumW = g => g.children.reduce((a, c) => a + c.w, 0);
+
+function renderEdit(q, s) {
+  setHeader({ back: { label: "Tornar", to: `${q.id}/${s.id}` }, title: "Editar assignatura", sub: s.name, action: { label: "Fet", fn: () => go(`${q.id}/${s.id}`) } });
+  setTabs(null);
+  main.innerHTML = `
+    <div class="card">
+      <div class="card-title"><h3>Assignatura</h3></div>
+      <label class="ef"><span>Nom</span><input type="text" id="e-name" value="${esc(s.name)}"></label>
+      <label class="ef" style="margin-bottom:0"><span>Abreviatura</span><input type="text" id="e-code" value="${esc(s.code)}" maxlength="8" style="text-transform:uppercase"></label>
     </div>
     <div class="card">
-      <div class="card-title"><h3>Ponderació</h3></div>
-      <div class="wbar">${s.segs.map((sg, i) => `<div class="seg" style="flex:${sg.w}"><i id="${s.id}-seg${i}" style="width:0;background:${segColor(i)}"></i></div>`).join("")}</div>
-      <div class="legend">${s.segs.map((sg, i) => `<div><span class="dot" style="background:${segColor(i)}"></span>${sg.l} <b>${pct(sg.w)}</b></div>`).join("")}</div>
-      <div class="wnote">${s.wnote}</div>
-    </div>`;
-  for (const gr of s.groups) {
-    const tot = gr.title.match(/·\s*(\d+%)/);
-    html += `<div class="card"><div class="card-title"><h3>${gr.title.replace(/\s*·\s*\d+%/, "")}</h3>${tot ? `<span class="sum">${tot[1]} de la nota</span>` : ""}</div>`;
-    if (gr.labs) {
-      for (let i = 1; i <= 6; i++) {
-        html += `<div class="lab" id="ic-lab${i}">
-          <div class="lab-head"><b>Pràctica ${i}</b><div class="r"><span class="w">3,33%</span><span class="nl num" id="ic-nl${i}">—</span></div></div>
-          <label class="switch">Informe previ entregat<input type="checkbox" data-k="ic.inf${i}" checked></label>
-          <div class="field"><div class="lbl"><div>Prova prèvia</div><small>65% de la pràctica</small></div><input type="number" data-k="ic.PP${i}"></div>
-          <div class="field"><div class="lbl"><div>Informe final</div><small>35% de la pràctica</small></div><input type="number" data-k="ic.IF${i}"></div>
-        </div>`;
-      }
-    } else {
-      for (const f of gr.fields) {
-        html += `<div class="field"><div class="lbl"><div>${f.label}</div>${f.sub ? `<small>${f.sub}</small>` : ""}</div><span class="w">${f.w}</span><input type="number" data-k="${s.id}.${f.k}"></div>`;
-      }
-    }
-    html += `</div>`;
-  }
-  html += `<div class="card"><div class="card-title"><h3>Fórmules</h3></div><pre class="formula">${s.formula}</pre></div></section>`;
+      <div class="card-title"><h3>Apartats i proves</h3><span class="chip">Toca per editar</span></div>
+      <div id="tree">${treeRows(s, 0)}</div>
+    </div>
+    <div class="card help">
+      <p><b>Com funciona:</b> cada <b>prova</b> té una nota sobre 10 i un <b>pes</b>, que és el percentatge que compta dins del seu apartat (o sobre la nota final si no és dins de cap apartat).</p>
+      <p>Un <b>apartat</b> agrupa proves (per exemple «Laboratori» o «Pràctica 1»). Els pesos de dins d'un apartat han de sumar 100%.</p>
+      <p>Una prova marcada com a <b>«substitueix»</b> (per exemple un examen final) es queda en lloc de tot el seu apartat si la nota és més alta. Si no ha de comptar per defecte, posa-li pes 0%.</p>
+      <p style="margin:0">Un apartat amb <b>requisit</b> (per exemple «Informe previ entregat») compta com un 0 si desmarques la casella.</p>
+    </div>
+    <button class="btn danger" id="del-subj">Eliminar l'assignatura</button>`;
+  $("e-name").oninput = e => { s.name = e.target.value || "Sense nom"; save(); };
+  $("e-code").oninput = e => { s.code = e.target.value.toUpperCase() || "?"; save(); };
+  $("del-subj").onclick = () => {
+    if (!confirm(`Segur que vols eliminar «${s.name}» i totes les seves notes?`)) return;
+    q.subjects = q.subjects.filter(x => x !== s); save(); go(q.id);
+  };
+  bindTree(q, s);
 }
-main.innerHTML = html;
 
-/* ---------- Inputs ---------- */
-document.querySelectorAll("input[data-k]").forEach(inp => {
-  const k = inp.dataset.k;
-  if (inp.type === "checkbox") {
-    if (k in data) inp.checked = data[k];
-    inp.addEventListener("change", () => { data[k] = inp.checked; save(); calc(); });
-    return;
+function treeRows(g, depth) {
+  let h = "";
+  for (const c of g.children) {
+    const tags = [];
+    if (c.replace) tags.push("substitueix si és més alta");
+    if (c.gate) tags.push(`requisit: ${c.gate}`);
+    if (c.np) tags.push("compta per NP");
+    h += `<div class="trow" style="--d:${depth}" data-edit="${c.id}">
+      <span class="ti">${isLeaf(c) ? "•" : "▾"}</span>
+      <span class="tn ${isLeaf(c) ? "" : "g"}">${esc(c.name)}${tags.length ? `<small>${esc(tags.join(" · "))}</small>` : ""}</span>
+      <span class="tw">${pctW(c.w)}</span><span class="te">✎</span></div>`;
+    if (!isLeaf(c)) h += treeRows(c, depth + 1);
   }
-  Object.assign(inp, { min: 0, max: 10, step: "0.01", inputMode: "decimal", placeholder: "—" });
-  if (typeof data[k] === "number") inp.value = data[k];
-  inp.addEventListener("input", () => {
-    const v = inp.value.trim();
-    if (v === "") { delete data[k]; inp.classList.remove("bad"); }
-    else {
-      const n = parseFloat(v.replace(",", "."));
-      const ok = !isNaN(n) && n >= 0 && n <= 10;
-      inp.classList.toggle("bad", !ok);
-      if (ok) data[k] = n; else delete data[k];
-    }
-    save(); calc();
+  const sw = sumW(g);
+  if (g.children.length && Math.abs(sw - 100) > 0.05) h += `<div class="twarn" style="--d:${depth}">⚠ Els pesos ${depth === 0 ? "principals" : `de «${esc(g.name)}»`} sumen ${pctW(sw)} (haurien de sumar 100%)</div>`;
+  h += `<div class="tadd" style="--d:${depth}"><button data-add="leaf" data-p="${g.id}">+ Prova</button><button data-add="group" data-p="${g.id}">+ Apartat</button>${g.children.filter(c => !(c.replace && c.w === 0)).length >= 2 ? `<button data-eq="${g.id}">⇆ Repartir igual</button>` : ""}</div>`;
+  return h;
+}
+function bindTree(q, s) {
+  const tree = $("tree");
+  tree.querySelectorAll("[data-edit]").forEach(r => r.onclick = () => {
+    const f = findWithParent(s, r.dataset.edit);
+    if (f) openSheet(q, s, f.n, f.p, false);
   });
-});
+  tree.querySelectorAll("[data-add]").forEach(b => b.onclick = () => {
+    const p = findWithParent(s, b.dataset.p).n;
+    const rest = Math.max(0, Math.round((100 - sumW(p)) * 100) / 100);
+    const n = b.dataset.add === "leaf" ? L(uid(), "Nova prova", rest) : G(uid(), "Nou apartat", rest, []);
+    openSheet(q, s, n, p, true);
+  });
+  tree.querySelectorAll("[data-eq]").forEach(b => b.onclick = () => {
+    equalize(findWithParent(s, b.dataset.eq).n); save(); refreshTree(q, s);
+  });
+}
+function equalize(g) {
+  const ks = g.children.filter(c => !(c.replace && c.w === 0));
+  ks.forEach(c => { c.w = 100 / ks.length; });
+}
+function refreshTree(q, s) { $("tree").innerHTML = treeRows(s, 0); bindTree(q, s); }
 
-/* ---------- Càlcul ---------- */
-const results = {};
-const gradeCls = v => (has(v) ? (r2(v) >= 5 ? "c-pass" : "c-fail") : "c-none");
+/* =================== Full d'edició =================== */
+const sheet = $("sheet"), panel = $("sheet-panel");
+function closeSheet() { sheet.classList.add("hidden"); panel.innerHTML = ""; }
+sheet.querySelector(".sheet-bg").onclick = closeSheet;
 
-function calc() {
-  for (const s of SUBJECTS) {
-    const r = s.calc();
-    const W = Math.min(1, wsum(r.items));
-    const sec = sum(r.items);
-    const prov = W > 0 ? sec / W : null;
-    const complete = W >= 0.999;
-    const id = s.id;
-    const big = document.getElementById(id + "-big");
-    const st = document.getElementById(id + "-status");
-    const sub = document.getElementById(id + "-sub");
-
-    let res;
-    if (r.np) {
-      big.textContent = "NP"; big.className = "big num c-none";
-      st.textContent = "No presentat"; st.className = "status";
-      sub.textContent = "Encara no hi ha cap nota introduïda.";
-      res = { v: "NP", W: 0 };
-    } else if (!has(prov)) {
-      big.textContent = "—"; big.className = "big num c-none";
-      st.textContent = "Sense notes"; st.className = "status";
-      sub.textContent = "Introdueix notes per veure la nota provisional.";
-      res = { v: null, W: 0 };
-    } else {
-      big.textContent = fmt(prov); big.className = "big num " + gradeCls(prov);
-      const pass = r2(prov) >= 5;
-      st.textContent = complete ? (pass ? "Aprovat · definitiva" : "Suspès · definitiva") : (pass ? "Provisional · aprovant" : "Provisional · suspenent");
-      st.className = "status " + (pass ? "pass" : "fail");
-      sub.textContent = complete ? "Tota l'assignatura està avaluada." : `Calculada sobre el ${pct(W)} avaluat fins ara.`;
-      res = { v: prov, W, complete };
+function openSheet(q, s, n, p, isNew) {
+  const leaf = isLeaf(n);
+  const pName = p === s ? null : p.name;
+  panel.innerHTML = `
+    <h4>${isNew ? (leaf ? "Nova prova" : "Nou apartat") : leaf ? "Editar prova" : "Editar apartat"}</h4>
+    <label class="ef"><span>Nom</span><input type="text" id="f-name" value="${esc(n.name)}"></label>
+    <label class="ef"><span>Pes (%) ${pName ? `dins de «${esc(pName)}»` : "sobre la nota final"}</span>
+      <input type="number" id="f-w" value="${Math.round(n.w * 10000) / 10000}" min="0" max="100" step="any" inputmode="decimal">
+      <small>${leaf ? "Posa 0% si és un examen opcional que només substitueix." : "Les proves de dins d'aquest apartat es reparteixen aquest pes."}</small></label>
+    <label class="ef"><span>Descripció (opcional)</span><input type="text" id="f-desc" value="${esc(n.desc || "")}" placeholder="Per exemple: temes 1 i 2"></label>
+    ${leaf ? `<label class="switch">Si és més alta, substitueix ${pName ? `«${esc(pName)}»` : "tota la nota"}<input type="checkbox" id="f-rep" ${n.replace ? "checked" : ""}></label>`
+           : `<label class="switch">Té un requisit (casella sí/no)<input type="checkbox" id="f-gate" ${n.gate ? "checked" : ""}></label>
+              <label class="ef ${n.gate ? "" : "hidden"}" id="f-gtext-w"><span>Text del requisit</span><input type="text" id="f-gtext" value="${esc(n.gate || "Informe previ entregat")}"><small>Si el desmarques, l'apartat compta com un 0.</small></label>`}
+    <label class="switch">Compta per decidir l'NP<input type="checkbox" id="f-np" ${n.np ? "checked" : ""}></label>
+    <p class="wnote" style="margin:0 0 14px">NP: si no et presentes a cap de les proves marcades, la nota és NP.</p>
+    ${isNew ? "" : `<div class="row2"><button class="btn" id="f-up">↑ Pujar</button><button class="btn" id="f-down">↓ Baixar</button></div>`}
+    <div class="row2"><button class="btn ghost" id="f-cancel">Cancel·lar</button><button class="btn primary" id="f-save">${isNew ? "Afegir" : "Desar"}</button></div>
+    ${isNew ? "" : `<button class="btn danger" id="f-del" style="margin-bottom:0">Eliminar ${leaf ? "la prova" : "l'apartat i el seu contingut"}</button>`}`;
+  sheet.classList.remove("hidden");
+  if (!leaf) $("f-gate").onchange = e => $("f-gtext-w").classList.toggle("hidden", !e.target.checked);
+  $("f-cancel").onclick = closeSheet;
+  $("f-save").onclick = () => {
+    n.name = $("f-name").value.trim() || (leaf ? "Prova" : "Apartat");
+    const w = parseFloat(String($("f-w").value).replace(",", "."));
+    n.w = isNaN(w) ? 0 : Math.max(0, Math.min(100, w));
+    const d = $("f-desc").value.trim();
+    if (d) n.desc = d; else delete n.desc;
+    if (leaf) { if ($("f-rep").checked) n.replace = true; else delete n.replace; }
+    else {
+      if ($("f-gate").checked) { n.gate = $("f-gtext").value.trim() || "Requisit complert"; if (n.gateOn === undefined) n.gateOn = true; }
+      else { delete n.gate; delete n.gateOn; }
     }
-    document.getElementById(id + "-prog").style.width = (W * 100) + "%";
-    document.getElementById(id + "-plbl").textContent = `${pct(W)} avaluat`;
-    document.getElementById(id + "-sec").textContent = has(prov) && !complete ? `Punts assegurats: ${fmt(sec)} / 10` : "";
-    document.getElementById(id + "-bd").innerHTML = r.bd.map(([l, v]) => `<div class="bd"><span>${l}</span><span class="num">${fmt(v)}</span></div>`).join("");
-    document.getElementById(id + "-bd").style.display = r.bd.length ? "" : "none";
-    document.getElementById(id + "-hint").innerHTML = r.hints.map(h => `<p>${h}</p>`).join("");
-
-    // Barra de ponderació: omplir segons el que està avaluat
-    s.segs.forEach((sg, i) => {
-      let f;
-      if (id === "ic" && sg.l === "Laboratori") {
-        let n = 0;
-        for (let j = 1; j <= 6; j++) n += infOn(j) ? (has(g("ic.PP" + j)) ? 1 : 0) + (has(g("ic.IF" + j)) ? 1 : 0) : 2;
-        f = n / 12;
-      } else f = sg.keys.filter(k => has(g(id + "." + k))).length / sg.keys.length;
-      document.getElementById(`${id}-seg${i}`).style.width = (f * 100) + "%";
-    });
-    results[id] = res;
+    if ($("f-np").checked) n.np = true; else delete n.np;
+    if (isNew) p.children.push(n);
+    save(); closeSheet(); refreshTree(q, s);
+  };
+  if (!isNew) {
+    const move = d => {
+      const i = p.children.indexOf(n), j = i + d;
+      if (j < 0 || j >= p.children.length) return;
+      [p.children[i], p.children[j]] = [p.children[j], p.children[i]];
+      save(); closeSheet(); refreshTree(q, s);
+    };
+    $("f-up").onclick = () => move(-1);
+    $("f-down").onclick = () => move(1);
+    $("f-del").onclick = () => {
+      if (!confirm(`Eliminar «${n.name}»${leaf ? "" : " i tot el que conté"}?`)) return;
+      p.children = p.children.filter(c => c !== n);
+      save(); closeSheet(); refreshTree(q, s);
+    };
   }
-
-  document.querySelectorAll("[id^=ic-lab]").forEach((el, i) => el.classList.toggle("off", !infOn(i + 1)));
-  renderSummary();
+  if (isNew) setTimeout(() => { $("f-name").focus(); $("f-name").select(); }, 50);
 }
 
-function renderSummary() {
-  const el = document.getElementById("summary");
-  const nums = [];
-  el.innerHTML = SUBJECTS.map(s => {
-    const r = results[s.id];
-    let v = "—", cls = "c-none", tag = "Sense notes";
-    if (r.v === "NP") { v = "NP"; tag = "No presentat"; }
-    else if (has(r.v)) { v = fmt(r.v); cls = gradeCls(r.v); tag = r.complete ? "Definitiva" : `Provisional · ${pct(r.W)} avaluat`; nums.push(r.v); }
-    return `<div class="srow" data-go="${s.id}">
-      <div class="info"><div class="n">${s.name}</div><div class="c">${s.code} · ${tag}</div><div class="mini"><i style="width:${r.W * 100}%"></i></div></div>
-      <div class="g"><div class="v num ${cls}">${v}</div></div><span class="chev">›</span></div>`;
-  }).join("");
-  el.querySelectorAll(".srow").forEach(row => row.onclick = () => show(row.dataset.go));
-  const avg = nums.length ? nums.reduce((a, b) => a + b, 0) / nums.length : null;
-  const a = document.getElementById("avg");
-  a.textContent = fmt(avg); a.className = "v num " + gradeCls(avg);
-  document.getElementById("avg-sub").textContent = nums.length ? `Mitjana de ${nums.length} assignatur${nums.length === 1 ? "a" : "es"} amb nota` : "Encara no hi ha notes";
-}
-
-/* ---------- Navegació ---------- */
-function show(t) {
-  document.querySelectorAll("main > section").forEach(s => s.classList.toggle("hidden", s.id !== t));
-  tabs.querySelectorAll("button").forEach(b => b.classList.toggle("active", b.dataset.t === t));
-  window.scrollTo(0, 0);
-}
-tabs.querySelectorAll("button").forEach(b => b.onclick = () => show(b.dataset.t));
-document.getElementById("reset").onclick = () => {
-  if (!confirm("Segur que vols esborrar totes les notes?")) return;
-  data = {}; save(); location.reload();
-};
-
-calc();
+route();
 </script>
 </body>
 </html>
